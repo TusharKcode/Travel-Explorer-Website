@@ -34,7 +34,7 @@ export default function WeatherSection() {
     <section className='weather-section'>
         <div className='weather-container'>
             <h2 className='weather-title'>
-               <WbSunnyTwoToneIcon/> Check Weather
+               <WbSunnyTwoToneIcon fontSize='large'/> Check Weather of your favourite destination
             </h2>
 
             {/* Search Input */}
@@ -53,7 +53,7 @@ export default function WeatherSection() {
                 <div className='weather-card'>
                     <h3>{weather.name}, {weather.sys.country}</h3>
                     <p> <ThermostatIcon/> {weather.main.temp}</p>
-                    <p> <CloudIcon/> {weather.weather[0].desciption}</p>
+                    <p> <CloudIcon/> {weather.weather[0].description}</p>
                     <p> <WaterDropIcon/> Humidity: {weather.main.humidity}</p>
                 </div>
             )}
