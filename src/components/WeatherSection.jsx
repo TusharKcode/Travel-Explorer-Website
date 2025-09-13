@@ -4,6 +4,9 @@ import WbSunnyTwoToneIcon from '@mui/icons-material/WbSunnyTwoTone';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import CloudIcon from '@mui/icons-material/Cloud';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
+import GrainIcon from '@mui/icons-material/Grain';
 
 export default function WeatherSection() {
     
@@ -29,6 +32,29 @@ export default function WeatherSection() {
         }
     };
 
+    const getWeatherIcon = (condition) => {
+        switch(condition){
+            case "Clear":
+                return <WbSunnyTwoToneIcon fontSize='large' color='warning'/>
+            case "Clouds":
+                return <CloudIcon fontSize='large' color='action'/>
+            case "Rain":
+                return <WaterDropIcon fontSize='large' color='primary'/>
+            case "Snow":
+                return <AcUnitIcon fontSize='large' color='info'/>
+            case "Thunderstorm":
+                return <ThunderstormIcon fontSize='large' color='error'/>
+            case "Drizzle":
+                return <GrainIcon fontSize='large' color='primary'/>
+            case "Mist":
+            case "Fog":
+            case "Haze":
+                return <GrainIcon fontSize='large' color='disabled'/>
+            default:
+                return <CloudIcon fontSize='large'/>
+        }
+    }
+
 
   return (
     <section className='weather-section'>
@@ -51,10 +77,13 @@ export default function WeatherSection() {
             {/* Weather result */}
             {weather && (
                 <div className='weather-card'>
-                    <h3>{weather.name}, {weather.sys.country}</h3>
-                    <p> <ThermostatIcon/> {weather.main.temp}</p>
-                    <p> <CloudIcon/> {weather.weather[0].description}</p>
-                    <p> <WaterDropIcon/> Humidity: {weather.main.humidity}</p>
+                    <h3 style={{fontWeight:"bold", fontSize:"20px"}}>{weather.name}, {weather.sys.country}</h3>
+                    <p> <ThermostatIcon color='error'/> {weather.main.temp}°C</p>
+                    <p> {getWeatherIcon (weather.weather[0].main)} {" "}
+                        {weather.weather[0].description.charAt(0).toUpperCase() + 
+                         weather.weather[0].description.slice(1)}
+                    </p>
+                    <p> <WaterDropIcon color='info'/> Humidity: {weather.main.humidity}%</p>
                 </div>
             )}
         </div>
