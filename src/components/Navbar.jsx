@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <div className="text-2xl font-bold tracking-wide cursor-pointer hover:text-yellow-400 transition-colors">
-          🌍 Travel Explorer
+          <TravelExploreIcon fontSize="large"/> Travel Explorer
         </div>
 
         {/* Desktop Menu */}
