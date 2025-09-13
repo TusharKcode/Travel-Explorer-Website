@@ -32,11 +32,16 @@ export default function PopularPackages() {
         }
     ]
   return (
-    <section className='packages-section'>
+    <section className='packages-section' data-aos='fade-up'>
         <h2 className='section-title'><FlightTwoToneIcon color='info'/>Popular Packages</h2>
         <div className='packages-grid'>
-            {packages.map((pkg) => (
-                <div key={pkg.id} className='package-card'>
+            {packages.map((pkg, index) => (
+                <div 
+                    key={pkg.id} 
+                    className='package-card'
+                    data-aos='zoom-in'
+                    data-aos-delay={index * 200}
+                >
                     <img src={pkg.image} alt={pkg.name} className='package-img'/>
                     <div className='package-content'>
                         <h3>{pkg.name}</h3>
