@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar'
 import HeroSection from '../components/HeroSection'
 import FeaturedDestinations from '../components/FeaturedDestinations'
 import WeatherSection from '../components/WeatherSection'
+import PopularPackages from '../components/PopularPackages'
 
 export default function Home(){
     return(
@@ -10,6 +11,7 @@ export default function Home(){
           <HeroSection/>
           <FeaturedDestinations/>
           <WeatherSection/>
+          <PopularPackages/>
         </>
     )
 }
