@@ -6,6 +6,7 @@ import HeroSection from '../components/HeroSection';
 import FeaturedDestinations from '../components/FeaturedDestinations';
 import WeatherSection from '../components/WeatherSection';
 import PopularPackages from '../components/PopularPackages';
+import Testimonials from "../components/Testimonials";
 import { useEffect } from "react";
 
 export default function Home(){
@@ -19,6 +20,7 @@ export default function Home(){
           <FeaturedDestinations/>
           <WeatherSection/>
           <PopularPackages/>
+          <Testimonials/>
         </>
     )
 }
