@@ -8,6 +8,7 @@ import WeatherSection from '../components/WeatherSection';
 import PopularPackages from '../components/PopularPackages';
 import Testimonials from "../components/Testimonials";
 import Newsletter from "../components/Newsletter";
+import Contact from "../components/Contact";
 import { useEffect } from "react";
 
 export default function Home(){
@@ -23,6 +24,7 @@ export default function Home(){
           <PopularPackages/>
           <Testimonials/>
           <Newsletter/>
+          <Contact/>
         </>
     )
 }
