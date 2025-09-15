@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 items-center">
           {[
-            { name:"Home", path:"/"},
+            { name:"Home", path:"/home"},
             { name:"Explore", path:"/explore"},
             { name:"About", path:"/about"},
             { name:"Contact", path:"/contact"}
@@ -59,7 +59,7 @@ export default function Navbar() {
       >
         <ul className="flex flex-col items-center bg-blue-800 space-y-5 py-6 mt-3 rounded-lg shadow-lg">
           {[
-            { name:"Home", path:"/"},
+            { name:"Home", path:"/home"},
             { name:"Explore", path:"/explore"},
             { name:"About", path:"/about"},
             { name:"Contact", path:"/contact"}
