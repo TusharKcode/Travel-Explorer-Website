@@ -4,9 +4,9 @@ import PopularPackages from '../components/PopularPackages'
 
 export default function Explore() {
   return (
-    <div>
+    <>
         <FeaturedDestinations/>
         <PopularPackages/>
-    </div>
+    </>
   )
 }

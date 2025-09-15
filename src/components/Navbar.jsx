@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 export default function Navbar() {
@@ -12,18 +13,24 @@ export default function Navbar() {
         {/* Logo */}
         <div className="text-2xl font-bold tracking-wide cursor-pointer hover:text-yellow-400 transition-colors">
           <TravelExploreIcon fontSize="large"/> Travel Explorer
+          <Link to='/'></Link>
         </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 items-center">
-          {["Home", "Explore", "About", "Contact"].map((item) => (
-            <li key={item}>
-              <a
-                href={`/${item.toLowerCase()}`}
+          {[
+            { name:"Home", path:"/"},
+            { name:"Explore", path:"/explore"},
+            { name:"About", path:"/about"},
+            { name:"Contact", path:"/contact"}
+          ].map((item) => (
+            <li key={item.name}>
+              <Link
+                to={item.path}
                 className="hover:text-yellow-400 transition-colors duration-300"
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             </li>
           ))}
           <li>
@@ -51,14 +58,20 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col items-center bg-blue-800 space-y-5 py-6 mt-3 rounded-lg shadow-lg">
-          {["Home", "Explore", "About", "Contact"].map((item) => (
-            <li key={item}>
-              <a
-                href={`/${item.toLowerCase()}`}
+          {[
+            { name:"Home", path:"/"},
+            { name:"Explore", path:"/explore"},
+            { name:"About", path:"/about"},
+            { name:"Contact", path:"/contact"}
+          ].map((item) => (
+            <li key={item.name}>
+              <Link
+                to={item.path}
                 className="hover:text-yellow-400 transition-colors duration-300"
+                onClick={() => setOpen(false)}
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             </li>
           ))}
           <li>
