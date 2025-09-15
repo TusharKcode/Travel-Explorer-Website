@@ -9,6 +9,7 @@ import PopularPackages from '../components/PopularPackages';
 import Testimonials from "../components/Testimonials";
 import Newsletter from "../components/Newsletter";
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 import { useEffect } from "react";
 
 export default function Home(){
@@ -25,6 +26,7 @@ export default function Home(){
           <Testimonials/>
           <Newsletter/>
           <Contact/>
+          <Footer/>
         </>
     )
 }
