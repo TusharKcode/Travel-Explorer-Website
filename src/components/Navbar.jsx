@@ -1,10 +1,23 @@
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if(searchTerm.trim() === ""){
+      alert("Please enter a search term!");
+      return;
+    }
+    navigate(`/explore?search=${searchTerm}`);
+    setSearchTerm("");    //clear input
+    setOpen(false);       //close mobile menu
+  }
 
   return (
     <nav className="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-6 py-4 shadow-lg fixed w-full top-0 z-50">
@@ -34,11 +47,16 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="bg-white px-4 py-1.5 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            />
+            <form onSubmit={handleSearch} className="flex item-center">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search..."
+                className="bg-white px-4 py-1.5 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+              <button type="submit" className="ml-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">Go</button>
+            </form>
           </li>
         </ul>
 
@@ -75,11 +93,16 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="bg-white px-4 py-1.5 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            />
+            <form onSubmit={handleSearch} className="flex item-center">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search..."
+                className="bg-white px-4 py-1.5 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+              <button type="submit" className="ml-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">Go</button>
+            </form>
           </li>
         </ul>
       </div>
