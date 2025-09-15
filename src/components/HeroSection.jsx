@@ -1,4 +1,23 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function HeroSection() {
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+  
+  const handleSearch = () => {
+    if(searchTerm.trim() === ""){
+      alert("Please enter a destination to search!")
+      return;
+    }
+    navigate(`/explore?search=${searchTerm}`)
+  };
+
+  const handleExplore = () =>{
+    navigate("/explore");
+  }
+
   return (
     <section
       className="relative h-screen flex items-center justify-center text-center text-pink"
@@ -26,15 +45,17 @@ export default function HeroSection() {
           <input
             type="text"
             placeholder="Search destinations..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="px-4 py-2 w-full text-black focus:outline-none"
           />
-          <button className="bg-yellow-500 px-6 py-2 text-black font-semibold hover:bg-yellow-600 transition">
+          <button onClick={handleSearch} className="bg-yellow-500 px-6 py-2 text-black font-semibold hover:bg-yellow-600 transition">
             Search
           </button>
         </div>
 
         {/* CTA Button */}
-        <button className="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+        <button onClick={handleExplore} className="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
           Explore Now
         </button>
       </div>
