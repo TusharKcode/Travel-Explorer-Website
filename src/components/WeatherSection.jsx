@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './WeatherSection.css'
+import '../styles/WeatherSection.css'
 import WbSunnyTwoToneIcon from '@mui/icons-material/WbSunnyTwoTone';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import CloudIcon from '@mui/icons-material/Cloud';

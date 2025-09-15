@@ -1,5 +1,5 @@
 import React from 'react'
-import './Contact.css'
+import '../styles/Contact.css'
 import PushPinIcon from '@mui/icons-material/PushPin';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import MailIcon from '@mui/icons-material/Mail';

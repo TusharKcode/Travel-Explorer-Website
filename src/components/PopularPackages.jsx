@@ -1,5 +1,5 @@
 import React from 'react'
-import './PopularPackages.css'
+import '../styles/PopularPackages.css'
 import FlightTwoToneIcon from '@mui/icons-material/FlightTwoTone';
 import StarOutlineSharpIcon from '@mui/icons-material/StarOutlineSharp';
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Testimonials.css'
+import '../styles/Testimonials.css'
 import StarOutlineSharpIcon from '@mui/icons-material/StarOutlineSharp';
 
 export default function Testimonials() {
