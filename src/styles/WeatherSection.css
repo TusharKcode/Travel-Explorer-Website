@@ -54,3 +54,46 @@
     font-size: 1.1rem;
     color: #333;
 }
+
+.skeleton{
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-line{
+    height: 16px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+    background-size: 400% 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.skeleton-line.title{
+    height: 20px;
+    width: 70%;
+}
+
+.skeleton-line.short{
+    width: 40%;
+}
+
+@media (max-width: 600px) {
+    .weather-search{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .weather-search input{
+        width: 100%;
+    }
+    .weather-search button{
+        width: 100%;
+    }
+}
+
+@keyframes pulse {
+    0%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}

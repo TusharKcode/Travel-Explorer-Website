@@ -12,10 +12,14 @@ export default function WeatherSection() {
     
     const [city, setCity] = useState("");
     const [weather, setWeather] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const fetchWeather = async () => {
         if(!city) return;
         try {
+            setLoading(true);
+            setWeather(null);
+
             const apiKey = "82e83fe4112f28e50d61b006d1efbda4";
             const res = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
@@ -29,6 +33,8 @@ export default function WeatherSection() {
             }
         } catch (error) {
             console.error(error)
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -53,8 +59,7 @@ export default function WeatherSection() {
             default:
                 return <CloudIcon fontSize='large'/>
         }
-    }
-
+    };
 
   return (
     <section className='weather-section'>
@@ -74,8 +79,16 @@ export default function WeatherSection() {
                 <button onClick={fetchWeather}>Search</button>
             </div>
 
+            {loading && (
+                <div className='weather-card skeleton'>
+                    <div className='skeleton-line title'></div>
+                    <div className='skeleton-line'></div>
+                    <div className='skeleton-line short'></div>
+                </div>
+            )}
+
             {/* Weather result */}
-            {weather && (
+            {weather && !loading && (
                 <div className='weather-card'>
                     <h3 style={{fontWeight:"bold", fontSize:"20px"}}>{weather.name}, {weather.sys.country}</h3>
                     <p> <ThermostatIcon color='error'/> {weather.main.temp}°C</p>

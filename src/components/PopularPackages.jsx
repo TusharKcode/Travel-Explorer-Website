@@ -1,57 +1,65 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/PopularPackages.css'
 import FlightTwoToneIcon from '@mui/icons-material/FlightTwoTone';
 import StarOutlineSharpIcon from '@mui/icons-material/StarOutlineSharp';
+import Skeleton from '@mui/material/Skeleton';
 
 export default function PopularPackages() {
 
-    const packages = [
-        {
-            id: 1,
-            name:"Bali Escape",
-            duration:"7D / 6N",
-            image:"https://unsplash.com/photos/U6t80TWJ1DM/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzU3NzY1NzEwfA&force=true&w=640",
-            price:"₹25000",
-            rating: 4.8
-        },
-        {
-            id: 2,
-            name:"Switzerland Adventure",
-            duration:"10D / 9N",
-            image:"https://unsplash.com/photos/TP8c1dhUPHk/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8c3dpdHplcmxhbmQlMjBhZHZlbnR1cmV8ZW58MHx8fHwxNzU3NzY5MTc3fDA&force=true&w=640",
-            price:"₹80000",
-            rating: 4.9
-        },
-        {
-            id: 3,
-            name:"Dubai Luxury",
-            duration:"5D / 4N",
-            image:"https://unsplash.com/photos/CK9BTsQ-I1Y/download?force=true&w=640",
-            price:"₹55000",
-            rating: 4.7
-        }
-    ]
+    const [loading, setLoading] = useState(true);
+    const [packages,setpackages] = useState([]);
+
+    useEffect(() => {
+        const fetchPackages = async () => {
+            try {
+                const res = await fetch("/data/popularPackages.json")
+                const data = await res.json();
+                setpackages(data);
+                setLoading(false);
+            } catch (error) {
+                console.error("Failed to load Packages: ", error)
+            }
+        };
+        fetchPackages();
+    }, []);
+
   return (
     <section className='packages-section' data-aos='fade-up'>
         <h2 className='section-title'><FlightTwoToneIcon color='info'/>Popular Packages</h2>
         <div className='packages-grid'>
-            {packages.map((pkg, index) => (
-                <div 
-                    key={pkg.id} 
-                    className='package-card'
-                    data-aos='zoom-in'
-                    data-aos-delay={index * 200}
-                >
-                    <img src={pkg.image} alt={pkg.name} className='package-img'/>
-                    <div className='package-content'>
-                        <h3>{pkg.name}</h3>
-                        <p>{pkg.duration}</p>
-                        <p className='price'>{pkg.price}</p>
-                        <p> <StarOutlineSharpIcon/> {pkg.rating}</p>
-                        <button className='book-btn'>Book Now</button>
+            {loading 
+                ? Array.from({length: 3}).map((_, i) => (
+                    <div key={i} className='packages-card'>
+                        <Skeleton variant='rectangular' width="100%" height={200}/>
+                        <div className='packages-content'>
+                            <Skeleton width="60%" height={28}/>
+                            <Skeleton width="40%"/>
+                            <Skeleton width="50%"/>
+                            <Skeleton width="30%"/>
+                            <Skeleton variant='rounded' width="80%" height={36}/>
+                        </div>
                     </div>
+            ))
+        : packages.map((pkg, index) => (
+            <div
+                key={pkg.id}
+                className='packages-card'
+                data-aos="zoom-in"
+                data-aos-delay={index*200}
+            >
+                <img src={pkg.image} alt={pkg.name} className='packages-img'/>
+                <div className='packages-content'>
+                    <h3>{pkg.name}</h3>
+                    <p>{pkg.duration}</p>
+                    <p className='price'>{pkg.price}</p>
+                    <p>
+                        <StarOutlineSharpIcon/> {pkg.rating}
+                    </p>
+                    <button className='book-btn'>Book Now</button>
                 </div>
-            ))}
+            </div>
+        ))
+        }
         </div>
     </section>
   )
