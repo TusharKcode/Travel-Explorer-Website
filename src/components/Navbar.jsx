@@ -1,7 +1,30 @@
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+
+function SearchForm({searchTerm, setSearchTerm, handleSearch}) {
+  return(
+    <form 
+      onSubmit={handleSearch} 
+      className="flex flex-col sm:flex-row items-center w-full sm:w-auto"
+    >
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        placeholder="Search..."
+        aria-label="Search Destinations"
+        className="bg-white px-4 py-1.5 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 w-full sm:w-auto"
+      />
+      <button 
+        type="submit" 
+        className="ml-2 sm:mt-0 sm:ml-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">
+          Go
+      </button>
+    </form>
+  )
+}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -19,54 +42,59 @@ export default function Navbar() {
     setOpen(false);       //close mobile menu
   }
 
+  const menuItems = [
+    { name:"Home", path:"/home"},
+    { name:"Explore", path:"/explore"},
+    { name:"About", path:"/about"},
+    { name:"Contact", path:"/contact"}
+  ]
+
   return (
     <nav className="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-6 py-4 shadow-lg fixed w-full top-0 z-50">
       <div className="flex justify-between items-center max-w-6xl mx-auto">
         
         {/* Logo */}
-        <div className="text-2xl font-bold tracking-wide cursor-pointer hover:text-yellow-400 transition-colors">
-          <TravelExploreIcon fontSize="large"/> Travel Explorer
-          <Link to='/'></Link>
-        </div>
+        <NavLink 
+          to="/home" 
+          className="text-2xl font-bold tracking-wide flex items-center hover:text-yellow-400 transition-colors"
+        >
+          <TravelExploreIcon fontSize="large" className="mr-2"/> Travel Explorer
+        </NavLink>
+
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 items-center">
-          {[
-            { name:"Home", path:"/home"},
-            { name:"Explore", path:"/explore"},
-            { name:"About", path:"/about"},
-            { name:"Contact", path:"/contact"}
-          ].map((item) => (
+          {menuItems.map((item) => (
             <li key={item.name}>
-              <Link
+              <NavLink
                 to={item.path}
-                className="hover:text-yellow-400 transition-colors duration-300"
+                className={({ isActive }) => 
+                  `transition-colors duration-300 ${
+                    isActive ? "text-yellow-400 font-semibold" : "hover:text-yellow-400"
+                  }`
+                }
               >
                 {item.name}
-              </Link>
+              </NavLink>
             </li>
           ))}
           <li>
-            <form onSubmit={handleSearch} className="flex item-center">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search..."
-                className="bg-white px-4 py-1.5 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              />
-              <button type="submit" className="ml-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">Go</button>
-            </form>
+            <SearchForm
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              handleSearch={handleSearch}
+            />
           </li>
         </ul>
 
         {/* Mobile Menu Icon */}
-        <div
+        <button
           className="md:hidden text-3xl cursor-pointer hover:text-yellow-400 transition"
           onClick={() => setOpen(!open)}
+          aria-label="Toogle menu"
         >
           {open ? <FiX /> : <FiMenu />}
-        </div>
+        </button>
       </div>
 
       {/* Mobile Menu */}
@@ -76,33 +104,27 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col items-center bg-blue-800 space-y-5 py-6 mt-3 rounded-lg shadow-lg">
-          {[
-            { name:"Home", path:"/home"},
-            { name:"Explore", path:"/explore"},
-            { name:"About", path:"/about"},
-            { name:"Contact", path:"/contact"}
-          ].map((item) => (
+          {menuItems.map((item) => (
             <li key={item.name}>
-              <Link
+              <NavLink
                 to={item.path}
-                className="hover:text-yellow-400 transition-colors duration-300"
+                className={({ isActive }) =>
+                  `transition-colors duration-300 ${
+                    isActive ? "text-yellow-400 font-semibold" : "hover:text-yellow-400"
+                  }`
+                }
                 onClick={() => setOpen(false)}
               >
                 {item.name}
-              </Link>
+              </NavLink>
             </li>
           ))}
-          <li>
-            <form onSubmit={handleSearch} className="flex item-center">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search..."
-                className="bg-white px-4 py-1.5 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              />
-              <button type="submit" className="ml-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">Go</button>
-            </form>
+          <li className="w-4/5">
+            <SearchForm
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              handleSearch={handleSearch}
+            />
           </li>
         </ul>
       </div>

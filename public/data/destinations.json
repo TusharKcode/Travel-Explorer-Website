@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name":"Bali, Indoneasia",
+        "description":"Tropical paradise with beaches & temples",
+        "image":"https://unsplash.com/photos/BnejcYJOvk8/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NDN8fEJhbGklMjBJbmRvbmVhc2lhfGVufDB8fHx8MTc1Nzc0NDQzOHww&force=true&w=640",
+        "rating": 4.8
+    },
+    {
+        "id": 2,
+        "name":"Paris, France",
+        "description":"City of Love & iconic Eiffiel Tower",
+        "image":"https://unsplash.com/photos/9gjunLdtfvw/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8OTR8fHBhcmlzJTIwZnJhbmNlfGVufDB8fHx8MTc1Nzc0NDU3M3ww&force=true&w=640",
+        "rating": 4.5
+    },
+    {
+        "id": 3,
+        "name":"Tokyo, Japan",
+        "description":"Blend of tradition & futuristic city life",
+        "image":"https://unsplash.com/photos/FVK-lpEc-Bc/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzU3NzQ0NjM4fA&force=true&w=640",
+        "rating": 4.7
+    },
+    {
+        "id": 4,
+        "name":"New York, USA",
+        "description":"The city that never sleeps",
+        "image":"https://unsplash.com/photos/A2CChTZvzTE/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzU3NzQyOTE1fA&force=true&w=640",
+        "rating": 4.6
+    }
+]

@@ -40,6 +40,7 @@ export default function HeroSection() {
         backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        margin:"30px 0 0 0"
       }}
     >
       {/* Overlay */}
@@ -48,7 +49,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-2xl px-6 text-white">
         <h1 className="text-3xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent drop-shadow-lg">
-          Where do you want to go?
+          Discover Your Next Adventure
         </h1>
         <p className="text-lg md:text-xl mb-6 text-gray-200 drop-shadow">
           Find amazing destinations and experiences around the world.
