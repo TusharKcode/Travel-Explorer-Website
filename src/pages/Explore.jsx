@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
+import Slider from "react-slick"
 import FeaturedDestinations from '../components/FeaturedDestinations'
 import PopularPackages from '../components/PopularPackages'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Explore() {
   const[photos, setPhotos] = useState([]);
@@ -20,26 +23,38 @@ export default function Explore() {
           };
           fetchImages();
       }, [accessKey]);
+                          //Slider Settings
+      const settings = {
+        dots: true,
+        infinite: true,
+        speed: 600,
+        slideToShow: 3,
+        slideToScroll: 1,
+        autoPlay: true,
+        autoPlaySpeed: 2500,
+        responsive: [
+          { breakpoint: 1280, settings: {slideToShow: 2} },
+          { breakpoint: 768, settings: {slideToShow: 1} },
+        ],
+      };
   return (
     <>
-    <section>
-      <h2 style={{textAlign:"center", margin:"20px 0"}}>Explore Destinations</h2>
-      <div
-        style={{
-          display:"grid",
-          gridTemplateColumns:"repeat(auto-fill, minmax(250px, 1fr))",
-          gap:"15px",
-          padding:"20px"
-        }}
-        >
-        {photos.map((photo) => (
-          <img 
-          key={photo.id}
-          src={photo.urls.small} 
-          alt={photo.alt_description} 
-          style={{width:"100%", borderRadius:"10px"}}
-          />
+    <section style={{margin:"70px 0"}}>
+      <h2 style={{textAlign:"center", margin:"20px 0", fontSize:"2rem", fontWeight:"bold"}}>
+        Explore Destinations
+      </h2>
+      <div style={{maxWidth:"1400px", margin:"0 auto", padding:"0 20px"}}>
+        <Slider {...settings}>
+          {photos.map((photo) => (
+            <div key={photo.id} style={{padding:"0 10px"}}>
+              <img 
+                src={photo.urls.small} 
+                alt={photo.alt_description} 
+                style={{width:"100%", height:"400px", objectFit:"cover", borderRadius:"12px"}}
+              />
+            </div>
         ))}
+        </Slider>
       </div>
     </section>
 
