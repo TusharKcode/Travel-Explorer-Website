@@ -1,0 +1,23 @@
+[
+        {
+            "id": 1,
+            "name": "Sarah Johanson",
+            "text": "My Bali trip was unforgettable! Everything was well organised and smooth. Highly recommend Travel Explorer.",
+            "image": "https://randomuser.me/api/portraits/women/44.jpg",
+            "rating": 5
+        },
+        {
+            "id": 2,
+            "name": "David Williams",
+            "text": "Switzerland packge was amazing! The guides were friendly and the destinations were breathtaking.",
+            "image": "https://randomuser.me/api/portraits/men/32.jpg",
+            "rating": 4.7
+        },
+        {
+            "id": 3,
+            "name": "Emily Brown",
+            "text": "Loved the Dubai Luxury package! Hotels were top-notch and the entire trip was a 5-star experience.",
+            "image": "https://randomuser.me/api/portraits/women/68.jpg",
+            "rating": 4.6
+        }
+]
