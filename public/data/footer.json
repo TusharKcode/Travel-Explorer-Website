@@ -1,0 +1,18 @@
+{
+  "brandName": "Travel Explorer",
+  "tagline": "Your gateway to unforgettable journeys",
+  "linksTitle": "Quick Links",
+  "quickLinks": [
+    { "text": "Home", "href": "/Travel-explorerWebsite/src/pages/Home.jsx" },
+    { "text": "Destinations", "href": "/Travel-explorerWebsite/src/pages/Explore.jsx" },
+    { "text": "Packages", "href": "/Travel-explorerWebsite/src/pages/Explore.jsx" },
+    { "text": "Contact", "href": "/Travel-explorerWebsite/src/pages/Contact.jsx" }
+  ],
+  "socialTitle": "Follow Us",
+  "socials": {
+    "facebook": "https://facebook.com",
+    "twitter": "https://twitter.com",
+    "instagram": "https://instagram.com",
+    "linkedin": "https://linkedin.com"
+  }
+}
