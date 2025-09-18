@@ -3,10 +3,10 @@
   "tagline": "Your gateway to unforgettable journeys",
   "linksTitle": "Quick Links",
   "quickLinks": [
-    { "text": "Home", "href": "/Travel-explorerWebsite/src/pages/Home.jsx" },
-    { "text": "Destinations", "href": "/Travel-explorerWebsite/src/pages/Explore.jsx" },
-    { "text": "Packages", "href": "/Travel-explorerWebsite/src/pages/Explore.jsx" },
-    { "text": "Contact", "href": "/Travel-explorerWebsite/src/pages/Contact.jsx" }
+    { "text": "Home", "href": "/home" },
+    { "text": "Destinations", "href": "#destinations" },
+    { "text": "Packages", "href": "#packages" },
+    { "text": "Contact", "href": "#contact" }
   ],
   "socialTitle": "Follow Us",
   "socials": {

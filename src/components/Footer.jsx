@@ -30,7 +30,7 @@ export default function Footer() {
         {loading ? (
           <>
             {/* Brand Skeleton */}
-            <div className="footer-brands">
+            <div className="footer-brand">
               <Skeleton width="40%" height={40} style={{ marginBottom: "10px" }} />
               <Skeleton width="60%" height={20} />
             </div>
@@ -62,7 +62,7 @@ export default function Footer() {
         ) : (
           <>
             {/* Brand */}
-            <div className="footer-brands" data-aos="fade-up">
+            <div className="footer-brand" data-aos="fade-up">
               <h2>{footerData.brandName}</h2>
               <p>{footerData.tagline}</p>
             </div>
