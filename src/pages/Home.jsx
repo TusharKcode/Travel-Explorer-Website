@@ -1,7 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import FeaturedDestinations from '../components/FeaturedDestinations';
 import WeatherSection from '../components/WeatherSection';
@@ -9,7 +8,6 @@ import PopularPackages from '../components/PopularPackages';
 import Testimonials from "../components/Testimonials";
 import Newsletter from "../components/Newsletter";
 import Contact from "../components/Contact";
-import Footer from "../components/Footer";
 import { useEffect } from "react";
 
 export default function Home(){
@@ -18,7 +16,6 @@ export default function Home(){
   })
     return(
         <>
-          <Navbar/>
           <HeroSection/>
           <FeaturedDestinations/>
           <WeatherSection/>
@@ -26,7 +23,6 @@ export default function Home(){
           <Testimonials/>
           <Newsletter/>
           <Contact/>
-          <Footer/>
         </>
     )
 }
