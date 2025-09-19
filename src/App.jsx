@@ -1,4 +1,7 @@
 import './App.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Explore from './pages/Explore'
@@ -9,7 +12,9 @@ import Footer from './components/Footer'
 
 
 function App() {
-  
+  useEffect(() => {
+    AOS.init({duration: 1000, once: true})
+  })
   return (
     <>
     <Navbar/>
