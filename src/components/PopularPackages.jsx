@@ -3,11 +3,13 @@ import '../styles/PopularPackages.css'
 import FlightTwoToneIcon from '@mui/icons-material/FlightTwoTone';
 import StarOutlineSharpIcon from '@mui/icons-material/StarOutlineSharp';
 import Skeleton from '@mui/material/Skeleton';
+import { useNavigate } from 'react-router-dom';
 
 export default function PopularPackages() {
 
     const [loading, setLoading] = useState(true);
     const [packages,setpackages] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchPackages = async () => {
@@ -25,7 +27,9 @@ export default function PopularPackages() {
 
   return (
     <section className='packages-section' data-aos='fade-up'>
-        <h2 className='section-title'><FlightTwoToneIcon color='info'/>Popular Packages</h2>
+        <h2 className='section-title'>
+            <FlightTwoToneIcon color='info'/> Popular Packages
+        </h2>
         <div className='packages-grid'>
             {loading 
                 ? Array.from({length: 3}).map((_, i) => (
@@ -55,7 +59,12 @@ export default function PopularPackages() {
                     <p>
                         <StarOutlineSharpIcon/> {pkg.rating}
                     </p>
-                    <button className='book-btn'>Book Now</button>
+                    <button 
+                        className='book-btn'
+                        onClick={() => navigate(`/book/${pkg.id}`)}
+                    >
+                        Book Now
+                    </button>
                 </div>
             </div>
         ))

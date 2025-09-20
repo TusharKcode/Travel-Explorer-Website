@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import DestinationDetails from './components/DestinationDetails';
+import BookingPage from './components/BookingPage';
 
 
 function App() {
@@ -23,10 +24,11 @@ function App() {
         {/* Default route */}
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home/>} />
-        <Route path='/explore' element={<Explore/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/destinations/:id' element={<DestinationDetails/>}></Route>
+        <Route path='/explore' element={<Explore/>} />
+        <Route path='/about' element={<About/>} />
+        <Route path='/contact' element={<Contact/>} />
+        <Route path='/destinations/:id' element={<DestinationDetails/>} />
+        <Route path='/book/:id' element={<BookingPage/>} />        
       </Routes>
     <Footer/>
     </>

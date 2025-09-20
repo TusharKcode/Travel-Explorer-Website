@@ -1,0 +1,63 @@
+.booking-section{
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    background: #f9fafb;
+}
+
+.booking-card{
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+.booking-img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.booking-content{
+    font-size: 1.8rem;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.booking-content .price{
+    color: #059669;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.confirm-btn{
+    margin-top: 15px;
+    background: #2563eb;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.confirm-btn:hover{
+    background: #1d4ed8;
+}
+
+
+@media (max-width: 768px) {
+    .booking-card{
+        padding: 15px;
+    }
+
+    .booking-img{
+        height: 200px;
+    }
+}
