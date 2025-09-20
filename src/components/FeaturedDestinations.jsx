@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import StarOutlineSharpIcon from '@mui/icons-material/StarOutlineSharp';
+import { Link } from "react-router-dom";
 import { useEffect } from 'react';
 
 export default function FeaturedDestinations() {
@@ -24,7 +25,8 @@ export default function FeaturedDestinations() {
         {/* Grid */}
         <div className='grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             {destinations.map((place, index) => (
-                    <div
+                    <Link
+                        to={`/destinations/${place.id}`}
                         key={place.id}
                         className='bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 h-full flex flex-col'
                         data-aos='fade-up'
@@ -44,7 +46,7 @@ export default function FeaturedDestinations() {
                                 <StarOutlineSharpIcon className='mr-1'/> {place.rating}
                             </p>
                         </div>
-                    </div>
+                    </Link>
                 ))}
         </div>
       </div>
