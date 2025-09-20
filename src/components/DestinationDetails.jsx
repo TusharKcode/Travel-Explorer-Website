@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import StarOutlineSharpIcon from '@mui/icons-material/StarOutlineSharp';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Skeleton from '@mui/material/Skeleton';
 
 export default function DestinationDetails() {
@@ -61,31 +62,48 @@ export default function DestinationDetails() {
             <div className='bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition'>
                 <h3 className='text-xl font-semibold text-blue-800 mb-3'>Highlights</h3>
                 <ul className='list-disc list-inside text-gray-700 space-y-2'>
-                    <li>Beautiful Landscape & Attractions</li>
-                    <li>Cultural & Historical Sites</li>
-                    <li>Local Cuisine & Nightlife</li>
+                    {destination.highlights?.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                    ))}
                 </ul>
             </div>
             <div className='bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition'>
                 <h3 className='text-xl font-semibold text-blue-800 mb-3'>Travel Info</h3>
                 <p className='text-gray-700 mb-2'>
-                    <span className='font-semibold'>Best Time to Visit:</span> Spring & Autumn
+                    <span className='font-semibold'>Best Time to Visit:</span> {destination.bestTime}
                 </p>
                 <p className='text-gray-700 mb-2'>
-                    <span className='font-semibold'>Recommended Stay:</span> 5-7 Days
+                    <span className='font-semibold'>Recommended Stay:</span> {destination.stay}
                 </p>
                 <p className='text-gray-700'>
-                    <span className='font-semibold'>Popular Activities:</span> Sightseeing, Shopping , Local Tours
+                    <span className='font-semibold'>Popular Activities:</span> {" "}
+                    {destination.activities?.join(", ")}
                 </p>
             </div>
         </div>
 
+        {destination.gallery && (
+            <div className='mt-12' data-aos='fade-up' data-aos-delay='600'>
+                <h3 className='text-2xl font-semibold text-blue-800 mb-6'>Top Experience</h3>
+                <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-6'>
+                    {destination.gallery.map((img, idx) => (
+                        <img
+                            key={idx} 
+                            src={img}
+                            alt={`${destination.name} experience ${idx + 1}`} 
+                            className='w-full h-48 object-cover rounded-xl shadow-md hover:scale-105 transition-transform'
+                        />
+                    ))}
+                </div>
+            </div>
+        )}
+
         <div className='mt-10' data-aos='fade-up' data-aos-delay='600'>
             <Link 
-                to="/"
+                to="/explore"
                 className='inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition'
             >
-                Back to Destinations
+               <ArrowBackIosIcon/> Back to Destinations
             </Link>
         </div>
     </div>
