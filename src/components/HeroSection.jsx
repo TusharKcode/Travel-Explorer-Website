@@ -9,7 +9,7 @@ export default function HeroSection() {
   const navigate = useNavigate();
                                           //Loading Skeleton
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500)
+    const timer = setTimeout(() => setLoading(false), 100)
     return () => clearTimeout(timer)
   },[]);
 

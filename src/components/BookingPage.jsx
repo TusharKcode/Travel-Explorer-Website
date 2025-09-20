@@ -40,12 +40,18 @@ export default function BookingPage() {
         ) : (
             pkg && (
                 <div className='booking-card'>
-                    <img src={pkg.image} alt={pkg.name} className='booking-img'/>
-                    <div className='booking-content'>
+                    <div className='booking-left'>
+                        <img src={pkg.image} alt={pkg.name} className='booking-img'/>
+                    </div>
+                    <div className='booking-right'>
                         <h2>{pkg.name}</h2>
-                        <p>{pkg.duration}</p>
+                        <p className='duration'>{pkg.duration}</p>
                         <p className='price'>{pkg.price}</p>
-                        <p> <StarOutlineSharpIcon/> {pkg.rating}</p>
+                        <p className='rating'> <StarOutlineSharpIcon/> {pkg.rating}</p>
+                        <p className='desc'>
+                            Experience an unforgettable journey with our {pkg.name} package.
+                            Explore beautiful destinations, enjoy comfort stays and make lasting memories.
+                        </p>
                         <button className='confirm-btn'>Confirm Booking</button>
                     </div>
                 </div>
