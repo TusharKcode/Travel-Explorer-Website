@@ -4,7 +4,11 @@
         "name":"Bali, Indoneasia",
         "description":"Tropical paradise with beaches & temples",
         "image":"https://unsplash.com/photos/BnejcYJOvk8/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NDN8fEJhbGklMjBJbmRvbmVhc2lhfGVufDB8fHx8MTc1Nzc0NDQzOHww&force=true&w=640",
-        "rating": 4.8
+        "rating": 4.8,
+        "highlights":["Beaches & Surfing","Balinese Temples","Rice Terraces"],
+        "bestTime":"April - October",
+        "stay":"5-7 Days",
+        "activities":["Snorkeling","Local Cuisine","Cultural Tours"]
     },
     {
         "id": 2,
