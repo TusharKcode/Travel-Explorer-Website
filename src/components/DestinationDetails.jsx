@@ -17,7 +17,7 @@ export default function DestinationDetails() {
             const found = data.find((d) => d.id === parseInt(id));
             setDestination(found);
             setLoading(false);
-        });
+        })
         .catch(() => setLoading(false))
     }, [id]);
 
