@@ -9,6 +9,7 @@ export default function BookingPage() {
     const { id } = useParams();
     const [pkg ,setPkg] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
         const fetchPackage = async () => {
@@ -26,6 +27,10 @@ export default function BookingPage() {
         };
         fetchPackage();
     }, [id]);
+
+    const handleConfirmClick = () => {
+        setShowForm(true);
+    }
 
   return (
     <section className='booking-section' data-aos='fade-up'>
@@ -52,7 +57,21 @@ export default function BookingPage() {
                             Experience an unforgettable journey with our {pkg.name} package.
                             Explore beautiful destinations, enjoy comfort stays and make lasting memories.
                         </p>
-                        <button className='confirm-btn'>Confirm Booking</button>
+                        
+                        {!showForm ? (
+                            <button className='confirm-btn' onClick={handleConfirmClick}>
+                                Confirm Booking
+                            </button>
+                        ) : (
+                            <form className="booking-form">
+                                <h3>Booking Details</h3>
+                                <input type="text" placeholder='Full Name' required/>
+                                <input type="email" placeholder='Email Address' required/>
+                                <input type="date" required/>
+                                <input type="number" placeholder='Number of People' min="1" required/>
+                                <button type='sumit' className='submit-btn'>Submit Booking</button>
+                            </form>
+                        )}
                     </div>
                 </div>
             )
