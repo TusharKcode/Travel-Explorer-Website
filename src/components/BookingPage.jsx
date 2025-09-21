@@ -4,6 +4,12 @@ import "../styles/BookingPage.css";
 import Rating from '@mui/material/Rating';
 import Skeleton from '@mui/material/Skeleton';
 import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import Button from '@mui/material/Button';
 
 export default function BookingPage() {
 
@@ -12,6 +18,8 @@ export default function BookingPage() {
     const [loading, setLoading] = useState(true);
     const [showForm, setShowForm] = useState(false);
     const [alert, setAlert] = useState(null);
+
+    const [confirmation, setConfirmation] = useState(null);
 
     useEffect(() => {
         const fetchPackage = async () => {
@@ -57,13 +65,25 @@ export default function BookingPage() {
         if(!name || !email || !date || !people){
             setAlert({type:"warning", message:"Please fill in all fields before proceeding for booking."});
             return;
-        } else{
-            setAlert({type:"success", message:"Booking successful! We'll contact you shortly"});
-            e.target.reset();
-            setShowForm(false);
-        }
+        } 
+
+        // Generate Booking ID
+        const bookingId = "BK" + Date.now();
+
+        // Saving Booking in Local Storage
+        const newBooking = {id: bookingId, name, email, date, people, package: pkg};
+        const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+        existingBookings.push(newBooking);
+        localStorage.setItem("bookings", JSON.stringify(existingBookings));
+
+        setAlert({type:"success", message:"Booking successful!"});
+        setConfirmation(newBooking);
+
+        e.target.reset();
+        setShowForm(false);
     };
 
+    
   return (
     <section className='booking-section' data-aos='fade-up'>
         {loading ? (
@@ -118,6 +138,46 @@ export default function BookingPage() {
                 </div>
             )
         )}
+
+        {/* Toast-style Alerts */}
+        <Snackbar 
+            open={!!alert}
+            autoHideDuration={3000}
+            onClose={() => setAlert(null)}        
+            anchorOrigin={{vertical:"top", horizontal:"right"}}
+        >
+            {alert && (
+                <Alert
+                    severity={alert.type}
+                    variant='filled'
+                    onClose={() => setAlert(null)}
+                >
+                    {alert.message}
+                </Alert>
+            )}
+        </Snackbar>
+
+        {/* Confirmation Modal */}
+        <Dialog open={!!confirmation} onClose={() => setConfirmation(null)}>
+            <DialogTitle>Booking Confirmed</DialogTitle>
+            <DialogContent dividers>
+                <p><b>Booking ID:</b> {confirmation?.id}</p>
+                <p><b>Name:</b> {confirmation?.name}</p>
+                <p><b>Email:</b> {confirmation?.email}</p>
+                <p><b>Date:</b> {confirmation?.date}</p>
+                <p><b>People:</b> {confirmation?.people}</p>
+                <p><b>Package:</b> {confirmation?.package?.name}</p>
+            </DialogContent>
+            <DialogActions>
+                <Button
+                    onClick={() => setConfirmation(null)}
+                    variant="conatined"
+                    color="primary"
+                >
+                    Close
+                </Button>
+            </DialogActions>
+        </Dialog>
     </section>
   )
 }
