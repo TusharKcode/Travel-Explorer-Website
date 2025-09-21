@@ -11,6 +11,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import DestinationDetails from './components/DestinationDetails';
 import BookingPage from './components/BookingPage';
+import Login from './pages/Login';
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
         <Route path='/about' element={<About/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='/destinations/:id' element={<DestinationDetails/>} />
-        <Route path='/book/:id' element={<BookingPage/>} />        
+        <Route path='/book/:id' element={<BookingPage/>} />   
+        <Route path='/login' element={<Login/>}/>     
       </Routes>
     <Footer/>
     </>
