@@ -31,6 +31,17 @@ export default function BookingPage() {
         fetchPackage();
     }, [id]);
 
+    // Auto Close Alerts
+    useEffect(() => {
+        if(alert){
+            const timer = setTimeout(() => {
+                setAlert(null);
+
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    },[alert]);
+
     const handleConfirmClick = () => {
         setShowForm(true);
     }
@@ -96,10 +107,10 @@ export default function BookingPage() {
                         ) : (
                             <form className="booking-form" onSubmit={handleBookingSubmit}>
                                 <h3>Booking Details</h3>
-                                <input type="text" placeholder='Full Name' required/>
-                                <input type="email" placeholder='Email Address' required/>
-                                <input type="date" required/>
-                                <input type="number" placeholder='Number of People' min="1" required/>
+                                <input type="text" name='name' placeholder='Full Name' required/>
+                                <input type="email" name='email' placeholder='Email Address' required/>
+                                <input type="date" name='date' required/>
+                                <input type="number" name='people' placeholder='Number of People' min="1" required/>
                                 <button type='sumit' className='submit-btn'>Submit Booking</button>
                             </form>
                         )}
