@@ -7,55 +7,114 @@ import {
   signOut,
 } from "firebase/auth";
 
+import {TextField, Button, Snackar, Alert, Typography, Box, Snackbar} from "@mui/material";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegister, setIsRegister] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const [severity, setSeverity] = useState("success");
+
+  const showAlert = (msg, type = 'success') => {
+    setMessage(msg);
+    setSeverity(type);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (isRegister) {
         await createUserWithEmailAndPassword(auth, email, password);
-        alert("Account created!");
+        alert("Account created successfully!", "success");
       } else {
         await signInWithEmailAndPassword(auth, email, password);
-        alert("Login successful!");
+        alert("Login successful!", "success");
       }
     } catch (err) {
-      alert(err.message);
+      alert(err.message, "error");
     }
   };
 
   const handleLogout = async () => {
-    await signOut(auth);
-    alert("Logged out!");
+    try {
+      await signOut(auth);
+      alert("Logged out successfully!", "info");
+    } catch (err) {
+      showAlert(err.message, "error");
+    }
   };
 
   return (
-    <div className="login-container">
-      <h2>{isRegister ? "Register" : "Login"}</h2>
-      <form onSubmit={handleSubmit}>
-        <input
+    <Box className="login-container" data-aos='fade-up'>
+      <Typography variant="h5" gutterBottom color="primary">
+        {isRegister ? "Create Account" : "Login"}
+      </Typography>
+
+      <form onSubmit={handleSubmit} className="login-form">
+        <TextField
+          label="Email"
           type="email"
-          placeholder="Email"
+          variant="outlined"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          fullWidth
           required
         />
-        <input
+        <TextField
+          label="Password"
           type="password"
-          placeholder="Password"
+          variant="outlined"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          fullWidth
           required
         />
-        <button type="submit">{isRegister ? "Register" : "Login"}</button>
+
+        <Button type="submit" variant="contained" color="primary" fullWidth>
+          {isRegister ? "Register" : "Login"}
+        </Button>
       </form>
-      <button onClick={() => setIsRegister(!isRegister)}>
-        {isRegister ? "Already have an account? Login" : "New user? Register"}
-      </button>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
+      <Box mt={2}>
+        <Button 
+          variant="text" 
+          color="secondary" 
+          onClick={() => setIsRegister(!isRegister)} 
+          fullWidth
+        >
+          {isRegister ? "Already have an account? Login" : "New user? Register"}
+        </Button>
+        <Button 
+          variant="outlined" 
+          color="error" 
+          onClick={handleLogout} 
+          fullWidth
+          sx={{mt: 1}}
+        >
+          Logout
+        </Button>
+      </Box>
+
+      <Snackbar
+        open={open}
+        autoHideDuration={4000}
+        onClose={handleClose}
+        anchorOrigin={{vertical:"top", horizontal:"center"}}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={severity}
+          sx={{width:"100%"}}
+        >
+          {message}
+        </Alert>
+      </Snackbar>
+    </Box>
   );
 }
