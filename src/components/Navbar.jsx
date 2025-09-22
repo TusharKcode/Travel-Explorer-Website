@@ -1,52 +1,16 @@
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-
-function SearchForm({searchTerm, setSearchTerm, handleSearch}) {
-  return(
-    <form 
-      onSubmit={handleSearch} 
-      className="flex flex-col sm:flex-row items-center w-full sm:w-auto"
-    >
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Search..."
-        aria-label="Search Destinations"
-        className="bg-white px-4 py-1.5 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400 w-full sm:w-auto"
-      />
-      <button 
-        type="submit" 
-        className="ml-2 sm:mt-0 sm:ml-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">
-          Go
-      </button>
-    </form>
-  )
-}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate();
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if(searchTerm.trim() === ""){
-      alert("Please enter a search term!");
-      return;
-    }
-    navigate(`/explore?search=${searchTerm}`);
-    setSearchTerm("");    //clear input
-    setOpen(false);       //close mobile menu
-  }
-
+  
   const menuItems = [
     { name:"Home", path:"/home"},
     { name:"Explore", path:"/explore"},
     { name:"About", path:"/about"},
-    { name:"Contact", path:"/contact"}
+    { name:"Contact", path:"/contact"},
   ]
 
   return (
@@ -60,7 +24,6 @@ export default function Navbar() {
         >
           <TravelExploreIcon fontSize="large" className="mr-2"/> Travel Explorer
         </NavLink>
-
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 items-center">
@@ -78,12 +41,15 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
+
+          {/* Login Button */}
           <li>
-            <SearchForm
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              handleSearch={handleSearch}
-            />
+            <NavLink
+              to='/login'
+              className='bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition'
+            >
+              Login
+            </NavLink>
           </li>
         </ul>
 
@@ -119,12 +85,16 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
-          <li className="w-4/5">
-            <SearchForm
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              handleSearch={handleSearch}
-            />
+
+          {/* Login Button */}
+          <li>
+            <NavLink
+              to='/login'
+              onClick={() => setOpen(false)}
+              className='bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition'
+            >
+              Login
+            </NavLink>
           </li>
         </ul>
       </div>
