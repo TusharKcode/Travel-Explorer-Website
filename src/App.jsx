@@ -12,7 +12,7 @@ import Footer from './components/Footer'
 import DestinationDetails from './components/DestinationDetails';
 import BookingPage from './components/BookingPage';
 import Login from './pages/Login';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoutes from './components/ProtectedRoutes';
 import MyBookings from './pages/MyBookings';
 
 
@@ -33,7 +33,7 @@ function App() {
         <Route path='/destinations/:id' element={<DestinationDetails/>} />
         <Route path='/book/:id' element={<BookingPage/>} />   
         <Route path='/login' element={<Login/>}/>    
-        <Route path='/login' element={<ProtectedRoute> <MyBookings/>  </ProtectedRoute>}/> 
+        <Route path='/login' element={<ProtectedRoutes> <MyBookings/>  </ProtectedRoutes>}/> 
       </Routes>
     <Footer/>
     </>
