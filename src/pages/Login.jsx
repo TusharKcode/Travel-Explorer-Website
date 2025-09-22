@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 
 import {TextField, Button, Snackbar, Alert, Typography, Box} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -16,6 +17,8 @@ export default function Login() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [severity, setSeverity] = useState("success");
+
+  const navigate = useNavigate();
 
   const showAlert = (msg, type = 'success') => {
     setMessage(msg);
@@ -32,20 +35,21 @@ export default function Login() {
     try {
       if (isRegister) {
         await createUserWithEmailAndPassword(auth, email, password);
-        alert("Account created successfully!", "success");
+        showAlert("Account created successfully!", "success");
       } else {
         await signInWithEmailAndPassword(auth, email, password);
-        alert("Login successful!", "success");
+        showAlert("Login successful!", "success");
+        navigate("/my-bookings");
       }
     } catch (err) {
-      alert(err.message, "error");
+      showAlert(err.message, "error");
     }
   };
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      alert("Logged out successfully!", "info");
+      showAlert("Logged out successfully!", "info");
     } catch (err) {
       showAlert(err.message, "error");
     }
