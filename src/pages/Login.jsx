@@ -7,7 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 
-import {TextField, Button, Snackar, Alert, Typography, Box, Snackbar} from "@mui/material";
+import {TextField, Button, Snackbar, Alert, Typography, Box} from "@mui/material";
 
 export default function Login() {
   const [email, setEmail] = useState("");
