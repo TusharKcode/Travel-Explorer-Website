@@ -33,7 +33,7 @@ function App() {
         <Route path='/destinations/:id' element={<DestinationDetails/>} />
         <Route path='/book/:id' element={<BookingPage/>} />   
         <Route path='/login' element={<Login/>}/>    
-        <Route path='/login' element={<ProtectedRoutes> <MyBookings/>  </ProtectedRoutes>}/> 
+        <Route path='/my-bookings' element={<ProtectedRoutes><MyBookings/></ProtectedRoutes>}/> 
       </Routes>
     <Footer/>
     </>
