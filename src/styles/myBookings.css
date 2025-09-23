@@ -1,0 +1,23 @@
+.my-bookings-container {
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.booking-card {
+  border-radius: 12px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15) !important;
+}
+
+.no-bookings {
+  margin-top: 2rem;
+  font-style: italic;
+}
