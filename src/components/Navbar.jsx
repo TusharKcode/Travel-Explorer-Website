@@ -1,10 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, [auth]);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+      navigate("/home")
+    } catch (error) {
+      console.error("Error signing out: ", error);
+    }
+  };
   
   const menuItems = [
     { name:"Home", path:"/home"},
@@ -31,9 +52,11 @@ export default function Navbar() {
             <li key={item.name}>
               <NavLink
                 to={item.path}
-                className={({ isActive }) => 
+                className={({ isActive }) =>
                   `transition-colors duration-300 ${
-                    isActive ? "text-yellow-400 font-semibold" : "hover:text-yellow-400"
+                    isActive
+                      ? "text-yellow-400 font-semibold"
+                      : "hover:text-yellow-400"
                   }`
                 }
               >
@@ -42,15 +65,36 @@ export default function Navbar() {
             </li>
           ))}
 
-          {/* Login Button */}
-          <li>
-            <NavLink
-              to='/login'
-              className='bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition'
-            >
-              Login
-            </NavLink>
-          </li>
+          {/* Show Profile/MyBookings or Login */}
+          {user ? (
+            <>
+              <li>
+                <NavLink
+                  to="/my-bookings"
+                  className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition"
+                >
+                  My Bookings
+                </NavLink>
+              </li>
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition"
+                >
+                  Logout
+                </button>
+              </li>
+            </>
+          ) : (
+            <li>
+              <NavLink
+                to="/login"
+                className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition"
+              >
+                Login
+              </NavLink>
+            </li>
+          )}
         </ul>
 
         {/* Mobile Menu Icon */}
@@ -86,16 +130,56 @@ export default function Navbar() {
             </li>
           ))}
 
-          {/* Login Button */}
-          <li>
-            <NavLink
-              to='/login'
-              onClick={() => setOpen(false)}
-              className='bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition'
-            >
-              Login
-            </NavLink>
-          </li>
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex space-x-8 items-center">
+            {menuItems.map((item) => (
+              <li key={item.name}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `transition-colors duration-300 ${
+                      isActive
+                        ? "text-yellow-400 font-semibold"
+                        : "hover:text-yellow-400"
+                    }`
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              </li>
+            ))}
+
+            {/* Show Profile/MyBookings or Login */}
+            {user ? (
+              <>
+                <li>
+                  <NavLink
+                    to="/my-bookings"
+                    className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition"
+                  >
+                    My Bookings
+                  </NavLink>
+                </li>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <NavLink
+                  to="/login"
+                  className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition"
+                >
+                  Login
+                </NavLink>
+              </li>
+            )}
+          </ul>
         </ul>
       </div>
     </nav>
