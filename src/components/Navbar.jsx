@@ -7,6 +7,10 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState(null);
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -29,7 +33,6 @@ export default function Navbar() {
 
   const menuItems = [
     { name: "Home", path: "/home" },
-    { name: "Explore", path: "/explore" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -63,6 +66,37 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
+
+          {/* Dropdown for explore */}
+          <li
+            className="relative"
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+          >
+            <button className="transition-colors duration-300 hover:text-yellow-400 font-semibold">
+              Explore ▾
+            </button>
+            {dropdownOpen && (
+              <ul className="absolute bg-white text-black shadow-lg rounded-md mt-2 w-44">
+                <li>
+                  <NavLink
+                    to="/destinations"
+                    className="block px-4 py-2 hover:bg-blue-100"
+                  >
+                    Destinations  
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/packages"
+                    className="block px-4 py-2 hover:bg-blue-100"
+                  >
+                    Packages
+                  </NavLink>
+                </li>
+              </ul>
+            )}
+          </li>
 
           {/* Show Profile/MyBookings or Login */}
           {user ? (
@@ -130,6 +164,44 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
+
+          {/* Mobile Explore Dropdown */}
+          <li>
+            <button
+              onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+              className="font-semibold hover:text-yellow-400 transition"
+            >
+              Explore ▾
+            </button>
+            {mobileDropdownOpen && (
+              <ul className="mt-2 bg-blue-700 rounded-md shadow-inner">
+                <li>
+                  <NavLink
+                    to="/destinations"
+                    onClick={() => {
+                      setOpen(false);
+                      setMobileDropdownOpen(false);
+                    }}
+                    className="block px-4 py-2 hover:bg-blue-600"
+                  >
+                    Destinations
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/packages"
+                    onClick={() => {
+                      setOpen(false);
+                      setMobileDropdownOpen(false);
+                    }}
+                    className="block px-4 py-2 hover:bg-blue-600"
+                  >
+                    Packages
+                  </NavLink>
+                </li>
+              </ul>
+            )}
+          </li>
 
           {/* Show Profile/MyBookings or Login for mobile */}
           {user ? (
