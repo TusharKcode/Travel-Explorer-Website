@@ -20,6 +20,8 @@ export default function Footer() {
         setLoading(false);
       } catch (error) {
         console.error("Failed to load footer data: ", error);
+      } finally{
+        setLoading(false);
       }
     };
     fetchFooter();
@@ -48,10 +50,15 @@ export default function Footer() {
             <div className="footer-social">
               <Skeleton width="30%" height={25} style={{ marginBottom: "10px" }} />
               <div className="social-icons">
-                <Skeleton variant="circular" width={40} height={40} style={{ marginRight: "10px" }} />
-                <Skeleton variant="circular" width={40} height={40} style={{ marginRight: "10px" }} />
-                <Skeleton variant="circular" width={40} height={40} style={{ marginRight: "10px" }} />
-                <Skeleton variant="circular" width={40} height={40} />
+                {[...Array(4)].map((_, i) => (
+                  <Skeleton
+                    key={i}
+                    variant='circular'
+                    width={40}
+                    height={40}
+                    style={{marginRight:"10px"}}
+                  />
+                ))}
               </div>
             </div>
 
@@ -67,7 +74,7 @@ export default function Footer() {
               <h2>{footerData.brandName}</h2>
               <p>{footerData.tagline}</p>
             </div>
-
+            
             {/* Quick Links */}
             <div className="footer-links" data-aos="fade-up" data-aos-delay="200">
               <h3>{footerData.linksTitle}</h3>
