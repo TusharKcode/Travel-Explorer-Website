@@ -3,6 +3,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { NavLink, useNavigate } from "react-router-dom";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import '../styles/Navbar.css';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -38,29 +39,23 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-gradient-to-r from-blue-900 to-blue-700 text-white px-6 py-4 shadow-lg fixed w-full top-0 z-50">
-      <div className="flex justify-between items-center max-w-6xl mx-auto">
+    <nav className="navbar">
+      <div className="navbar-container">
         {/* Logo */}
         <NavLink
           to="/home"
-          className="text-2xl font-bold tracking-wide flex items-center hover:text-yellow-400 transition-colors"
+          className="logo"
         >
           <TravelExploreIcon fontSize="large" className="mr-2" /> Travel Explorer
         </NavLink>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 items-center">
+        <ul className="menu desktop-menu">
           {menuItems.map((item) => (
             <li key={item.name}>
               <NavLink
                 to={item.path}
-                className={({ isActive }) =>
-                  `transition-colors duration-300 ${
-                    isActive
-                      ? "text-yellow-400 font-semibold"
-                      : "hover:text-yellow-400"
-                  }`
-                }
+                className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {item.name}
               </NavLink>
@@ -69,28 +64,20 @@ export default function Navbar() {
 
           {/* Dropdown for explore */}
           <li
-            className="relative"
+            className="dropdown"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <button className="transition-colors duration-300 hover:text-yellow-400 font-semibold">
-              Explore ▾
-            </button>
+            <button>Explore ▾</button>
             {dropdownOpen && (
-              <ul className="absolute bg-white text-black shadow-lg rounded-md mt-2 w-44">
+              <ul className="dropdown-menu">
                 <li>
-                  <NavLink
-                    to="/destinations"
-                    className="block px-4 py-2 hover:bg-blue-100"
-                  >
+                  <NavLink to="/destinations">
                     Destinations  
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to="/packages"
-                    className="block px-4 py-2 hover:bg-blue-100"
-                  >
+                  <NavLink to="/packages">
                     Packages
                   </NavLink>
                 </li>
@@ -104,7 +91,7 @@ export default function Navbar() {
               <li>
                 <NavLink
                   to="/my-bookings"
-                  className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition"
+                  className="btn btn-green"
                 >
                   My Bookings
                 </NavLink>
@@ -112,7 +99,7 @@ export default function Navbar() {
               <li>
                 <button
                   onClick={handleLogout}
-                  className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition"
+                  className="btn btn-red"
                 >
                   Logout
                 </button>
@@ -122,7 +109,7 @@ export default function Navbar() {
             <li>
               <NavLink
                 to="/login"
-                className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition"
+                className="btn btn-yellow"
               >
                 Login
               </NavLink>
@@ -132,7 +119,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Icon */}
         <button
-          className="md:hidden text-3xl cursor-pointer hover:text-yellow-400 transition"
+          className="hamburger"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -142,23 +129,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <ul className="flex flex-col items-center bg-blue-800 space-y-5 py-6 mt-3 rounded-lg shadow-lg">
+        className={`mobile-menu ${open ? "show" : ""}`}>
+        <ul>
           {menuItems.map((item) => (
             <li key={item.name}>
               <NavLink
                 to={item.path}
-                className={({ isActive }) =>
-                  `transition-colors duration-300 ${
-                    isActive
-                      ? "text-yellow-400 font-semibold"
-                      : "hover:text-yellow-400"
-                  }`
-                }
                 onClick={() => setOpen(false)}
+                className={({ isActive }) => (isActive ? "active" : "")}
               >
                 {item.name}
               </NavLink>
@@ -169,12 +147,12 @@ export default function Navbar() {
           <li>
             <button
               onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-              className="font-semibold hover:text-yellow-400 transition"
+              className="dropdown-btn"
             >
               Explore ▾
             </button>
             {mobileDropdownOpen && (
-              <ul className="mt-2 bg-blue-700 rounded-md shadow-inner">
+              <ul className="mobile-dropdown">
                 <li>
                   <NavLink
                     to="/destinations"
@@ -182,7 +160,6 @@ export default function Navbar() {
                       setOpen(false);
                       setMobileDropdownOpen(false);
                     }}
-                    className="block px-4 py-2 hover:bg-blue-600"
                   >
                     Destinations
                   </NavLink>
@@ -194,7 +171,6 @@ export default function Navbar() {
                       setOpen(false);
                       setMobileDropdownOpen(false);
                     }}
-                    className="block px-4 py-2 hover:bg-blue-600"
                   >
                     Packages
                   </NavLink>
@@ -210,7 +186,7 @@ export default function Navbar() {
                 <NavLink
                   to="/my-bookings"
                   onClick={() => setOpen(false)}
-                  className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition"
+                  className="btn btn-green"
                 >
                   My Bookings
                 </NavLink>
@@ -221,7 +197,7 @@ export default function Navbar() {
                     handleLogout();
                     setOpen(false);
                   }}
-                  className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition"
+                  className="btn btn-red"
                 >
                   Logout
                 </button>
@@ -232,7 +208,7 @@ export default function Navbar() {
               <NavLink
                 to="/login"
                 onClick={() => setOpen(false)}
-                className="bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition"
+                className="btn btn-yellow"
               >
                 Login
               </NavLink>

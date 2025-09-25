@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import '../styles/login.css';
-import { auth } from "../firebase";
+import { auth, signInWithGoogle } from "../firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
 
-import {TextField, Button, Snackbar, Alert, Typography, Box} from "@mui/material";
+import {TextField, Button, Snackbar, Alert, Typography, Box, Divider} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -41,6 +41,16 @@ export default function Login() {
         showAlert("Login successful!", "success");
         navigate("/my-bookings");
       }
+    } catch (err) {
+      showAlert(err.message, "error");
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithGoogle();
+      showAlert("Google login successful!", "success");
+      navigate("/my-bookings");
     } catch (err) {
       showAlert(err.message, "error");
     }
@@ -85,6 +95,18 @@ export default function Login() {
           {isRegister ? "Register" : "Login"}
         </Button>
       </form>
+
+      <Divider sx={{my:"2"}}>OR</Divider>
+
+      <Button
+        variant="outlined"
+        color="secondary"
+        fullWidth
+        onClick={handleGoogleLogin}
+      >
+        Continue with Google
+      </Button>
+
       <Box mt={2}>
         <Button 
           variant="text" 
