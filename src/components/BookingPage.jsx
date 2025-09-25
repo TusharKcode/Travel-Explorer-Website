@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/BookingPage.css";
 import Rating from '@mui/material/Rating';
 import Skeleton from '@mui/material/Skeleton';
@@ -14,12 +14,14 @@ import Button from '@mui/material/Button';
 export default function BookingPage() {
 
     const { id } = useParams();
+    const navigate = useNavigate();
     const [pkg ,setPkg] = useState(null);
     const [loading, setLoading] = useState(true);
     const [showForm, setShowForm] = useState(false);
     const [alert, setAlert] = useState(null);
 
     const [confirmation, setConfirmation] = useState(null);
+    const [loginDialog, setLoginDialog] = useState(false);
 
     useEffect(() => {
         const fetchPackage = async () => {
@@ -51,6 +53,13 @@ export default function BookingPage() {
     },[alert]);
 
     const handleConfirmClick = () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if(!user){
+
+            //not Logged In -> go to login
+            setLoginDialog(true);
+            return;
+        }
         setShowForm(true);
     }
 
@@ -176,6 +185,33 @@ export default function BookingPage() {
                 >
                     Close
                 </Button>
+            </DialogActions>
+        </Dialog>
+
+        {/* Login required Dialog */}
+        <Dialog 
+            open={loginDialog}
+            onClose={() => setLoginDialog(false)}
+        >
+            <DialogTitle>Login Required</DialogTitle>
+            <DialogContent>
+                <p>You must be logged in to confirm a booking.</p>
+            </DialogContent>
+
+            <DialogActions>
+                <Button
+                    onClick={() => setLoginDialog(false)}
+                >
+                    Cancel
+                </Button>
+                <Button
+                    onClick={() => {
+                        setLoginDialog(false);
+                        navigate("/login")
+                    }}
+                    variant='contained'
+                    color='primary'
+                >Go to Login</Button>
             </DialogActions>
         </Dialog>
     </section>
