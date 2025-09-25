@@ -57,7 +57,6 @@ export default function BookingPage() {
     },[alert]);
 
     const handleConfirmClick = () => {
-        const user = JSON.parse(localStorage.getItem("user"));
         if(!user){
 
             //not Logged In -> go to login
