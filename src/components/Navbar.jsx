@@ -12,6 +12,8 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
+  const [profileDropdown, setProfileDropdown] = useState(false);
+
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -42,10 +44,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         {/* Logo */}
-        <NavLink
-          to="/home"
-          className="logo"
-        >
+        <NavLink to="/home" className="logo">
           <TravelExploreIcon fontSize="large" className="mr-2" /> Travel Explorer
         </NavLink>
 
@@ -72,45 +71,44 @@ export default function Navbar() {
             {dropdownOpen && (
               <ul className="dropdown-menu">
                 <li>
-                  <NavLink to="/destinations">
-                    Destinations  
-                  </NavLink>
+                  <NavLink to="/destinations">Destinations</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/packages">
-                    Packages
-                  </NavLink>
+                  <NavLink to="/packages">Packages</NavLink>
                 </li>
               </ul>
             )}
           </li>
 
-          {/* Show Profile/MyBookings or Login */}
+          {/* ⬅️ CHANGED: Profile dropdown if logged in */}
           {user ? (
-            <>
-              <li>
-                <NavLink
-                  to="/my-bookings"
-                  className="btn btn-green"
-                >
-                  My Bookings
-                </NavLink>
-              </li>
-              <li>
-                <button
-                  onClick={handleLogout}
-                  className="btn btn-red"
-                >
-                  Logout
-                </button>
-              </li>
-            </>
+            <li className="profile-dropdown">
+              <button
+                className="profile-btn"
+                onClick={() => setProfileDropdown(!profileDropdown)}
+              >
+                <img
+                  src={user.photoURL || "/default-avatar.png"}
+                  alt="Profile"
+                  className="profile-img"
+                />
+              </button>
+              {profileDropdown && (
+                <ul className="profile-menu">
+                  <li>
+                    <NavLink to="/my-bookings">My Bookings</NavLink>
+                  </li>
+                  <li>
+                    <button onClick={handleLogout} className="logout-btn">
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              )}
+            </li>
           ) : (
             <li>
-              <NavLink
-                to="/login"
-                className="btn btn-yellow"
-              >
+              <NavLink to="/login" className="btn btn-yellow">
                 Login
               </NavLink>
             </li>
@@ -179,28 +177,43 @@ export default function Navbar() {
             )}
           </li>
 
-          {/* Show Profile/MyBookings or Login for mobile */}
+          {/* ⬅️ CHANGED: Mobile profile dropdown */}
           {user ? (
             <>
-              <li>
-                <NavLink
-                  to="/my-bookings"
-                  onClick={() => setOpen(false)}
-                  className="btn btn-green"
-                >
-                  My Bookings
-                </NavLink>
-              </li>
-              <li>
+              <li className="profile-dropdown">
                 <button
-                  onClick={() => {
-                    handleLogout();
-                    setOpen(false);
-                  }}
-                  className="btn btn-red"
+                  className="profile-btn"
+                  onClick={() => setProfileDropdown(!profileDropdown)}
                 >
-                  Logout
+                  <img
+                    src={user.photoURL || "/default-avatar.png"}
+                    alt="Profile"
+                    className="profile-img"
+                  />
                 </button>
+                {profileDropdown && (
+                  <ul className="profile-menu">
+                    <li>
+                      <NavLink
+                        to="/my-bookings"
+                        onClick={() => setOpen(false)}
+                      >
+                        My Bookings
+                      </NavLink>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => {
+                          handleLogout();
+                          setOpen(false);
+                        }}
+                        className="logout-btn"
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                )}
               </li>
             </>
           ) : (
