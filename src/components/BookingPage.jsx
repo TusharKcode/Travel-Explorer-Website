@@ -23,6 +23,10 @@ export default function BookingPage() {
     const [confirmation, setConfirmation] = useState(null);
     const [loginDialog, setLoginDialog] = useState(false);
 
+    const [user] = useState(() => {
+        return JSON.parse(localStorage.getItem("user")) || null;
+    });
+
     useEffect(() => {
         const fetchPackage = async () => {
             try {
@@ -80,7 +84,7 @@ export default function BookingPage() {
         const bookingId = "BK" + Date.now();
 
         // Saving Booking in Local Storage
-        const newBooking = {id: bookingId, name, email, date, people, package: pkg};
+        const newBooking = {id: bookingId, name, email, date, people, package: pkg, userEmail: user?.email};
         const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
         existingBookings.push(newBooking);
         localStorage.setItem("bookings", JSON.stringify(existingBookings));
@@ -136,8 +140,8 @@ export default function BookingPage() {
                         ) : (
                             <form className="booking-form" onSubmit={handleBookingSubmit}>
                                 <h3>Booking Details</h3>
-                                <input type="text" name='name' placeholder='Full Name' required/>
-                                <input type="email" name='email' placeholder='Email Address' required/>
+                                <input type="text" name='name' placeholder='Full Name' defaultValue={user?.name} required/>
+                                <input type="email" name='email' placeholder='Email Address' defaultValue={user?.email} required/>
                                 <input type="date" name='date' required/>
                                 <input type="number" name='people' placeholder='Number of People' min="1" required/>
                                 <button type='sumit' className='submit-btn'>Submit Booking</button>
