@@ -177,7 +177,7 @@ export default function Navbar() {
             )}
           </li>
 
-          {/* ⬅️ CHANGED: Mobile profile dropdown */}
+          {/* CHANGED: Mobile profile dropdown */}
           {user ? (
             <>
               <li className="profile-dropdown">

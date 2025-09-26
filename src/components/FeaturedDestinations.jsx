@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import StarOutlineSharpIcon from '@mui/icons-material/StarOutlineSharp';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useEffect } from 'react';
 
 export default function FeaturedDestinations() {
@@ -48,6 +48,16 @@ export default function FeaturedDestinations() {
                         </div>
                     </Link>
                 ))}
+        </div>
+
+        {/* View All Destinations Button */}
+        <div className='text-center mt-8'>
+            <NavLink
+                to='/destinations'
+                className="btn btn-yellow"
+            >
+                View All Destinations
+            </NavLink>
         </div>
       </div>
     </section>

@@ -14,6 +14,8 @@ import BookingPage from './components/BookingPage';
 import Login from './pages/Login';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import MyBookings from './pages/MyBookings';
+import DestinationsPage from './pages/DestinationsPage';
+import PackagesPage from './pages/PackagesPage';
 
 
 function App() {
@@ -33,7 +35,9 @@ function App() {
         <Route path='/destinations/:id' element={<DestinationDetails/>} />
         <Route path='/book/:id' element={<BookingPage/>} />   
         <Route path='/login' element={<Login/>}/>    
-        <Route path='/my-bookings' element={<ProtectedRoutes><MyBookings/></ProtectedRoutes>}/> 
+        <Route path='/my-bookings' element={<ProtectedRoutes><MyBookings/></ProtectedRoutes>}/>
+        <Route path='/destinations' element={<DestinationsPage/>}/> 
+        <Route path='/packages' element={<PackagesPage/>}/>
       </Routes>
     <Footer/>
     </>

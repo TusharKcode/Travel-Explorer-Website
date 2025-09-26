@@ -3,7 +3,7 @@ import '../styles/PopularPackages.css'
 import FlightTwoToneIcon from '@mui/icons-material/FlightTwoTone';
 import StarOutlineSharpIcon from '@mui/icons-material/StarOutlineSharp';
 import Skeleton from '@mui/material/Skeleton';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 
 export default function PopularPackages() {
 
@@ -69,6 +69,16 @@ export default function PopularPackages() {
             </div>
         ))
         }
+        </div>
+
+        {/* View All Destinations Button */}
+        <div className='text-center mt-8'>
+            <NavLink
+                to='/packages'
+                className="btn btn-green"
+            >
+                View All Packages
+            </NavLink>
         </div>
     </section>
   )
