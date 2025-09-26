@@ -79,7 +79,7 @@ export default function About() {
         <div className='text-center mt-16 px-6'>
           <h3 className='text-2xl font-bold text-blue-900 mb-4'>Ready for your next adventure?</h3>
           <p className='text-gray-600 mb-6'>Discover, explore and book with Travel Explorer today!</p>
-          <a href="#packages" className='px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition'>
+          <a href="/packages" className='px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition'>
             Explore Packages
           </a>
         </div>
