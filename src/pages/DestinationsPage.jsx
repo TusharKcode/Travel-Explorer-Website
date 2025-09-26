@@ -3,7 +3,7 @@ import FeaturedDestinations from "../components/FeaturedDestinations";
 
 export default function DestinationsPage() {
   return (
-    <main style={{marginTop:"80px"}}>
+    <main style={{marginTop:"15px"}}>
         <FeaturedDestinations/>
     </main>
   )
