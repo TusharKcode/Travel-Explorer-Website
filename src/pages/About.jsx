@@ -76,13 +76,48 @@ export default function About() {
           </div>
         </div>
 
-        <div className='text-center mt-16 px-6'>
-          <h3 className='text-2xl font-bold text-blue-900 mb-4'>Ready for your next adventure?</h3>
-          <p className='text-gray-600 mb-6'>Discover, explore and book with Travel Explorer today!</p>
-          <a href="/packages" className='px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition'>
-            Explore Packages
-          </a>
+        <div className="text-center mt-16 px-6">
+          <h3 className="text-2xl font-bold text-blue-900 mb-8">Meet Our Team</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+              <img 
+                src="https://randomuser.me/api/portraits/women/44.jpg" 
+                alt="Team Member" 
+                className="w-24 h-24 mx-auto rounded-full mb-4"
+              />
+              <h4 className="font-semibold">Sarah Johnson</h4>
+              <p className="text-sm text-gray-600">Travel Consultant</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+              <img 
+                src="https://randomuser.me/api/portraits/men/32.jpg" 
+                alt="Team Member" 
+                className="w-24 h-24 mx-auto rounded-full mb-4"
+              />
+              <h4 className="font-semibold">David Lee</h4>
+              <p className="text-sm text-gray-600">Tour Guide</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+              <img 
+                src="https://randomuser.me/api/portraits/women/68.jpg" 
+                alt="Team Member" 
+                className="w-24 h-24 mx-auto rounded-full mb-4"
+              />
+              <h4 className="font-semibold">Emily Carter</h4>
+              <p className="text-sm text-gray-600">Booking Specialist</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+              <img 
+                src="https://randomuser.me/api/portraits/men/76.jpg" 
+                alt="Team Member" 
+                className="w-24 h-24 mx-auto rounded-full mb-4"
+              />
+              <h4 className="font-semibold">Michael Brown</h4>
+              <p className="text-sm text-gray-600">Travel Expert</p>
+            </div>
+          </div>
         </div>
+
     </section>
   );
 }

@@ -1,0 +1,130 @@
+[
+  {
+    "id": 101,
+    "name": "Santorini, Greece",
+    "description": "Iconic whitewashed houses and sunset views over the Aegean Sea.",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    "rating": 4.9,
+    "highlights": ["Sunset at Oia", "Blue-domed churches", "Cliffside villages"],
+    "bestTime": "April - October",
+    "stay": "3-5 Days",
+    "activities": ["Wine Tasting", "Boat Tours", "Beach Relaxation"],
+    "gallery": [
+      "https://images.unsplash.com/photo-1504548840739-30d93d07d823?w=800&q=80",
+      "https://images.unsplash.com/photo-1470123808288-1e59739c1b8b?w=800&q=80",
+      "https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=800&q=80"
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Dubai, UAE",
+    "description": "Modern skyscrapers, luxury shopping, and desert adventures.",
+    "image": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
+    "rating": 4.6,
+    "highlights": ["Burj Khalifa", "Desert Safari", "Luxury Malls"],
+    "bestTime": "November - March",
+    "stay": "4-6 Days",
+    "activities": ["Skydiving", "Shopping", "Camel Riding"],
+    "gallery": [
+      "https://images.unsplash.com/photo-1526481280695-3c720685208b?w=800&q=80",
+      "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d3?w=800&q=80",
+      "https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=800&q=80"
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Sydney, Australia",
+    "description": "Harbor city with the Opera House, beaches, and vibrant nightlife.",
+    "image": "https://images.unsplash.com/photo-1506976785307-8732e854ad05?w=800&q=80",
+    "rating": 4.7,
+    "highlights": ["Sydney Opera House", "Bondi Beach", "Harbor Bridge"],
+    "bestTime": "September - November, March - May",
+    "stay": "5-7 Days",
+    "activities": ["Surfing", "Harbor Cruises", "City Tours"],
+    "gallery": [
+      "https://images.unsplash.com/photo-1505205296326-2178af1b47bf?w=800&q=80",
+      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80"
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Cape Town, South Africa",
+    "description": "Table Mountain views, stunning beaches, and cultural diversity.",
+    "image": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=80",
+    "rating": 4.5,
+    "highlights": ["Table Mountain", "Cape Point", "V&A Waterfront"],
+    "bestTime": "October - April",
+    "stay": "4-6 Days",
+    "activities": ["Hiking", "Wine Tours", "Beach Trips"],
+    "gallery": [
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+      "https://images.unsplash.com/photo-1473187983305-f615310e7daa?w=800&q=80",
+      "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&q=80"
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Barcelona, Spain",
+    "description": "Gaudí’s architecture, lively streets, and Mediterranean beaches.",
+    "image": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=800&q=80",
+    "rating": 4.8,
+    "highlights": ["Sagrada Familia", "La Rambla", "Park Güell"],
+    "bestTime": "May - June, September",
+    "stay": "3-5 Days",
+    "activities": ["Cycling", "Tapas Tours", "Beach Walks"],
+    "gallery": [
+      "https://images.unsplash.com/photo-1506466010722-395aa2bef877?w=800&q=80",
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+      "https://images.unsplash.com/photo-1503437313881-503a91226495?w=800&q=80"
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Reykjavik, Iceland",
+    "description": "Northern lights, glaciers, and natural hot springs.",
+    "image": "https://images.unsplash.com/photo-1500048993953-d23a436266cf?w=800&q=80",
+    "rating": 4.6,
+    "highlights": ["Northern Lights", "Blue Lagoon", "Golden Circle"],
+    "bestTime": "February - March, September - October",
+    "stay": "4-7 Days",
+    "activities": ["Hot Springs", "Hiking", "Whale Watching"],
+    "gallery": [
+      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800&q=80",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80"
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Rio de Janeiro, Brazil",
+    "description": "Famous for Christ the Redeemer, beaches, and Carnival vibes.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    "rating": 4.4,
+    "highlights": ["Christ the Redeemer", "Copacabana Beach", "Sugarloaf Mountain"],
+    "bestTime": "December - March",
+    "stay": "4-6 Days",
+    "activities": ["Beach Sports", "Street Parades", "Cable Car Rides"],
+    "gallery": [
+      "https://images.unsplash.com/photo-1526401485004-46910ecc8e51?w=800&q=80",
+      "https://images.unsplash.com/photo-1520986606214-8b456906c813?w=800&q=80",
+      "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?w=800&q=80"
+    ]
+  },
+  {
+    "id": 108,
+    "name": "Venice, Italy",
+    "description": "Romantic gondola rides through historic canals and piazzas.",
+    "image": "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=800&q=80",
+    "rating": 4.7,
+    "highlights": ["Grand Canal", "St. Mark’s Square", "Rialto Bridge"],
+    "bestTime": "April - June, September - November",
+    "stay": "2-4 Days",
+    "activities": ["Gondola Rides", "Walking Tours", "Italian Dining"],
+    "gallery": [
+      "https://images.unsplash.com/photo-1470123808288-1e59739c1b8b?w=800&q=80",
+      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=80",
+      "https://images.unsplash.com/photo-1471115853179-bb1d604434e2?w=800&q=80"
+    ]
+  }
+]

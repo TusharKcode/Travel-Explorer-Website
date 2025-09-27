@@ -10,16 +10,33 @@ export default function DestinationDetails() {
     const [destination, setDestination] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const fetchFromSources = async () => {
+        const sources = [
+            "/data/exploreDestinations.json",
+            "/data/destinations.json"
+        ];
+
+        for(const src of sources){
+            try {
+                const res = await fetch(src);
+                if(!res.ok) continue;
+                const data = await res.json();
+                const found = data.find((d) => d.id === parseInt(id));
+                if (found) return found;
+            } catch (err) {
+                console.error(`Failed to load from ${src}:`, err);
+            }
+        }
+        return null;
+    };
+
     useEffect(() => {
-        fetch("/data/destinations.json")
-        .then((res) => res.json())
-        .then((data) => {
-            const found = data.find((d) => d.id === parseInt(id));
+        setLoading(true);
+        fetchFromSources().then((found) => {
             setDestination(found);
             setLoading(false);
-        })
-        .catch(() => setLoading(false))
-    }, [id]);
+        });
+    }, [id])
 
     if(loading){
         return(
@@ -100,7 +117,7 @@ export default function DestinationDetails() {
 
         <div className='mt-10' data-aos='fade-up' data-aos-delay='600'>
             <Link 
-                to="/explore"
+                to="/destinations"
                 className='inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition'
             >
                <ArrowBackIosIcon/> Back to Destinations
