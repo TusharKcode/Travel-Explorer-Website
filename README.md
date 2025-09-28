@@ -88,15 +88,19 @@ travel-booking-app/
 - *Storage* - Local Storage for bookings
 - *Icons* - Material Icons and React Icons
 
+---
+
 ## Future Enhancements
 
 - Booking History Page
 - Real-Time Payment Integration
 - Google Map Integration for destinations
 
+---
 
 ## Author
 
 **Tushar Kumar**
 
+- *Website Link* - []
 - *LinkedIn Profile* - [https://www.linkedin.com/in/tushar-kumar-developer/]
