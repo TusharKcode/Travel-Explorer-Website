@@ -1,12 +1,85 @@
-# React + Vite
+# Travel Booking Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive **Travel Explorer Web Application** built using **React**.
+This project allows users to explore destinations, view travel packages, chaeck real-time weather, read testimonials and make booking early.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Hero Section** - Beautiful Landing section with call-to-action button
+- **Destinations** - Browse destinations with detailed pages
+- **Packages** - Explore curated packages with ratings, price and booking option
+- **Booking System** - Users can submit bookings with confirmation modals
+- **Firebase Authentication** - Secure Login / Sign Up with firebase
+- **Filters & Search** - Search packages and filter by rating
+- **Weather Section** - Displays travel weather updates
+- **Team Section** - Meet the travel team
+- **Newsletter** - Subscription form for regular updates
+- **Responsive & Dynamic** - Fully optimaized for all screens
+- **Animations** - Smooth transitions with AOS
+- **Local Storage** - Stores booking locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Folder Structure
+
+```
+travel-booking-app/
+│
+├── public/
+│ ├── index.html
+│ └── data/
+│ ├── destinations.json
+│ ├── exploreDestinations.json
+│ ├── packages.json
+│ └── popularPackages.json
+│
+├── src/
+│ ├── components/
+│ │ ├── HeroSection.jsx
+│ │ ├── FeaturedDestinations.jsx
+│ │ ├── WeatherSection.jsx
+│ │ ├── PopularPackages.jsx
+│ │ ├── Testimonials.jsx
+│ │ ├── Newsletter.jsx
+│ │ ├── Contact2.jsx
+│ │ └── Team.jsx
+│ │
+│ ├── pages/
+│ │ ├── Home.jsx
+│ │ ├── About.jsx
+│ │ ├── DestinationsPage.jsx
+│ │ ├── DestinationDetails.jsx
+│ │ ├── PackagesPage.jsx
+│ │ └── BookingPage.jsx
+│ │
+│ ├── styles/
+│ │ └── BookingPage.css
+│ │
+│ ├── App.jsx
+│ ├── index.js
+│ └── routes.js
+│
+├── package.json
+└── README.md
+```
+
+---
+
+## Tech Stack
+
+*Frontend* - React, React-Router, Tailwind CSS, Material-UI
+*UI/UX* - AOS Animations, Respnsive Grid layout
+*Storage* - Local Storage for bookings
+*Icons* - Material Icons and React Icons
+
+## Future Enhancements
+
+- Booking History Page
+- Real-Time Payment Integration
+
+
+## Author
+
+**Tushar Kumar**
