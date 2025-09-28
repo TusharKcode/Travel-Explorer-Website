@@ -10,10 +10,10 @@ export default function PackagesPage() {
     const [filterRating, setFilterRating] = useState("all");
 
     useEffect(() => {
-        fetch("/data/popularPackages.json")
+        fetch("/data/packages.json")
         .then((res) => res.json())
         .then((data) => setPackages(data))
-        .then((err) => console.error("Failed to load packages:", err));
+        .catch((err) => console.error("Failed to load packages:", err));
       }, []);
 
     const filteredPackages = packages.filter((pkg) => {
@@ -33,7 +33,7 @@ export default function PackagesPage() {
           Explore Packages
         </h2>
 
-        {/* 🔹 Search & Filter Controls */}
+        {/* Search & Filter Controls */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
           <input
             type="text"
@@ -59,7 +59,7 @@ export default function PackagesPage() {
         {filteredPackages.length > 0 ? (
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filteredPackages.map((pkg, index) => (
-              <Link
+              <div
                 to={`/book/${pkg.id}`}
                 key={pkg.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300 h-full flex flex-col"
@@ -80,8 +80,15 @@ export default function PackagesPage() {
                   <p className="mt-2 text-yellow-500 font-medium flex items-center">
                     <StarOutlineSharpIcon className="mr-1" /> {pkg.rating}
                   </p>
+
+                  <Link
+                    to={`/book/${pkg.id}`}
+                    className='mt-4 inline-block px-4 py-2 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition'
+                  >
+                    Book Now
+                  </Link>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         ) : (

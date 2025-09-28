@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Bali Escape",
+    "duration": "7D / 6N",
+    "image": "https://unsplash.com/photos/U6t80TWJ1DM/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzU3NzY1NzEwfA&force=true&w=640",
+    "price": "₹25000",
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "name": "Switzerland Adventure",
+    "duration": "10D / 9N",
+    "image": "https://unsplash.com/photos/TP8c1dhUPHk/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8c3dpdHplcmxhbmQlMjBhZHZlbnR1cmV8ZW58MHx8fHwxNzU3NzY5MTc3fDA&force=true&w=640",
+    "price": "₹80000",
+    "rating": 4.9
+  },
+  {
+    "id": 3,
+    "name": "Dubai Luxury",
+    "duration": "5D / 4N",
+    "image": "https://unsplash.com/photos/CK9BTsQ-I1Y/download?force=true&w=640",
+    "price": "₹55000",
+    "rating": 4.7
+  },
+  {
+    "id": 4,
+    "name": "Thailand Getaway",
+    "duration": "6D / 5N",
+    "image": "https://unsplash.com/photos/oR0uERTVyD0/download?force=true&w=640",
+    "price": "₹32000",
+    "rating": 4.6
+  },
+  {
+    "id": 5,
+    "name": "Maldives Honeymoon",
+    "duration": "5D / 4N",
+    "image": "https://unsplash.com/photos/vMV6r4VRhJ8/download?force=true&w=640",
+    "price": "₹65000",
+    "rating": 4.9
+  },
+  {
+    "id": 6,
+    "name": "Paris & Rome Explorer",
+    "duration": "8D / 7N",
+    "image": "https://unsplash.com/photos/4hbJ-eymZ1o/download?force=true&w=640",
+    "price": "₹72000",
+    "rating": 4.8
+  },
+  {
+    "id": 7,
+    "name": "Singapore Delights",
+    "duration": "4D / 3N",
+    "image": "https://unsplash.com/photos/cdO92TdSIeE/download?force=true&w=640",
+    "price": "₹28000",
+    "rating": 4.5
+  },
+  {
+    "id": 8,
+    "name": "Kashmir Paradise",
+    "duration": "6D / 5N",
+    "image": "https://unsplash.com/photos/npxXWgQ33ZQ/download?force=true&w=640",
+    "price": "₹20000",
+    "rating": 4.7
+  }
+]

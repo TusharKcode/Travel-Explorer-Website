@@ -23,9 +23,17 @@ export default function BookingPage({ user }) { // user is optional
     useEffect(() => {
         const fetchPackage = async () => {
             try {
-                const res = await fetch("/data/popularPackages.json");
-                const data = await res.json();
-                const selected = data.find((p) => p.id === parseInt(id));
+                const [popularRes, newRes] = await Promise.all([
+                    fetch("/data/popularPackages.json"),
+                    fetch("/data/packages.json")
+                ]);
+
+                const popularData = await popularRes.json();
+                const newData = await newRes.json();
+
+                const allPackages = [...popularData, ...newData];
+
+                const selected = allPackages.find((p) => p.id === parseInt(id));
                 setPkg(selected);
                 setLoading(false);
             } catch (error) {
