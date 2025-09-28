@@ -69,10 +69,10 @@ travel-booking-app/
 
 ## Tech Stack
 
-*Frontend* - React, React-Router, Tailwind CSS, Material-UI
-*UI/UX* - AOS Animations, Respnsive Grid layout
-*Storage* - Local Storage for bookings
-*Icons* - Material Icons and React Icons
+- *Frontend* - React, React-Router, Tailwind CSS, Material-UI
+- *UI/UX* - AOS Animations, Respnsive Grid layout
+- *Storage* - Local Storage for bookings
+- *Icons* - Material Icons and React Icons
 
 ## Future Enhancements
 
@@ -83,3 +83,4 @@ travel-booking-app/
 ## Author
 
 **Tushar Kumar**
+*LinkedIn Profile* - [https://www.linkedin.com/in/tushar-kumar-developer/]
