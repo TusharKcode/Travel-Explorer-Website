@@ -39,23 +39,37 @@ travel-booking-app/
 │ ├── components/
 │ │ ├── HeroSection.jsx
 │ │ ├── FeaturedDestinations.jsx
+│ │ ├── DestinationDetails.jsx
 │ │ ├── WeatherSection.jsx
 │ │ ├── PopularPackages.jsx
 │ │ ├── Testimonials.jsx
 │ │ ├── Newsletter.jsx
 │ │ ├── Contact2.jsx
-│ │ └── Team.jsx
+│ │ └── Footer.jsx
+│ │ └── ProtectedRoutes.jsx
 │ │
 │ ├── pages/
 │ │ ├── Home.jsx
 │ │ ├── About.jsx
 │ │ ├── DestinationsPage.jsx
-│ │ ├── DestinationDetails.jsx
 │ │ ├── PackagesPage.jsx
-│ │ └── BookingPage.jsx
+│ │ └── MyBookings.jsx
+│ │ └── Explore.jsx
+│ │ └── Login.jsx
+│ │ └── Contact.jsx
 │ │
 │ ├── styles/
 │ │ └── BookingPage.css
+│ │ └── Contact.css
+│ │ └── Explore.css
+│ │ └── Footer.css
+│ │ └── Login.css
+│ │ └── myBookings.css
+│ │ └── Navbar.css
+│ │ └── Newsletter.css
+│ │ └── PopularPackages.css
+│ │ └── testimonials.css
+│ │ └── weatherSection.css
 │ │
 │ ├── App.jsx
 │ ├── index.js
@@ -78,6 +92,7 @@ travel-booking-app/
 
 - Booking History Page
 - Real-Time Payment Integration
+- Google Map Integration for destinations
 
 
 ## Author
