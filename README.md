@@ -83,4 +83,5 @@ travel-booking-app/
 ## Author
 
 **Tushar Kumar**
-*LinkedIn Profile* - [https://www.linkedin.com/in/tushar-kumar-developer/]
+
+- *LinkedIn Profile* - [https://www.linkedin.com/in/tushar-kumar-developer/]
