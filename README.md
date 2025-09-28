@@ -98,6 +98,11 @@ travel-booking-app/
 
 ---
 
+## 🌐 Live Demo
+Check out the deployed project here: [Travellore](https://travellore.netlify.app)
+
+---
+
 ## Author
 
 **Tushar Kumar**
