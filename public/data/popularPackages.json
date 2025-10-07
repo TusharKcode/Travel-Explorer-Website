@@ -4,7 +4,7 @@
             "name":"Bali Escape",
             "duration":"7D / 6N",
             "image":"https://unsplash.com/photos/U6t80TWJ1DM/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzU3NzY1NzEwfA&force=true&w=640",
-            "price":"₹25000",
+            "price":"₹25,000",
             "rating": 4.8
         },
         {
@@ -12,7 +12,7 @@
             "name":"Switzerland Adventure",
             "duration":"10D / 9N",
             "image":"https://unsplash.com/photos/TP8c1dhUPHk/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8c3dpdHplcmxhbmQlMjBhZHZlbnR1cmV8ZW58MHx8fHwxNzU3NzY5MTc3fDA&force=true&w=640",
-            "price":"₹80000",
+            "price":"₹80,000",
             "rating": 4.9
         },
         {
@@ -20,7 +20,7 @@
             "name":"Dubai Luxury",
             "duration":"5D / 4N",
             "image":"https://unsplash.com/photos/CK9BTsQ-I1Y/download?force=true&w=640",
-            "price":"₹55000",
+            "price":"₹55,000",
             "rating": 4.7
         }
 ]
