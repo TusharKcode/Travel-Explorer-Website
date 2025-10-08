@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const faqs = [
         {
@@ -35,7 +36,7 @@ export default function FAQSection() {
   return (
     <section className='py-16 bg-gray-50' id='faq'>
         <div className='max-w-5xl mx-auto px-6'>
-            <h2 className='text-3xl md:text-4xl font-bold text-center mb-10 text-blue-900'>
+            <h2 className='text-3xl md:text-4xl font-bold text-center mb-10 text-blue-900' data-aos='fade-up'>
                 Frequently Asked Questions
             </h2>
 
@@ -51,7 +52,7 @@ export default function FAQSection() {
                                 {faq.question}
                             </h3>
                             <span className='text-gray-500 text-xl'>
-                                {openIndex === index ? "-" : "+"}
+                                {openIndex === index ? <FaChevronUp/> : <FaChevronDown/>}
                             </span>
                         </div>
                         {openIndex === index && (
