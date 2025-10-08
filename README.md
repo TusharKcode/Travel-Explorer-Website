@@ -144,8 +144,7 @@ This will start your project at `http://localhost:5173/` (deafult Vite port)
     npm run build
 ```
 
-- 6. Deploy
-Deploy easily on Netlify, Vercel or GitHub Pages
+- 6. Deploy easily on Netlify, Vercel or GitHub Pages
 ---
 
 ## 👨‍💻 Author
