@@ -8,13 +8,13 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyD9CUxJn065-eNGoZUEfuQzr3_xuNyoI0k",    //YOUR_API_KEY
-  authDomain: "travelexplorer-6305b.firebaseapp.com",   //YOUR_PROJECT_ID.firebaseapp.com
-  projectId: "travelexplorer-6305b",                    //YOUR_PROJECT_ID
-  storageBucket: "travelexplorer-6305b.appspot.com",    //YOUR_PROJECT_ID.addspot.com
-  messagingSenderId: "966384894366",                            //YOUR_SENDER_ID
-  appId: "1:966384894366:web:4fad74ec2d5bb361fd568f",           //YOUR_APP_ID
-  measurementId: "G-0CTLBFS9S9"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,                        //YOUR_API_KEY
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,                //YOUR_PROJECT_ID.firebaseapp.com
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,                  //YOUR_PROJECT_ID
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,          //YOUR_PROJECT_ID.addspot.com
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID, //YOUR_SENDER_ID
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,                          //YOUR_APP_ID
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
