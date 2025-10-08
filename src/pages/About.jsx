@@ -1,7 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaGlobeAmericas, FaHotel, FaShieldAlt, FaDollarSign } from "react-icons/fa";
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 export default function About() {
+
+  const [stats, setStats] = useState({
+    destinations: 0,
+    hotels: 0,
+    travelers: 0,
+    experience: 0
+  });
+
+  useEffect(() => {
+    AOS.init({duration:1000, once: true});
+
+    const handleScroll = () => {
+      const section = document.getElementById('stats');
+      const rect = section.getBoundingClientRect();
+
+      if(rect.top < window.innerHeight && rect.bottom >= 0){
+        let i =0 ;
+        const interval = setInterval(() => {
+          i++;
+          setStats({
+            destinations: Math.min(i, 50),
+            hotels: Math.min(i * 4, 200),
+            travelers: Math.min(i * 200, 10000),
+            experience: Math.min(i / 10, 5)
+          });
+          if(i >= 50) clearInterval(interval);
+        }, 50);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className='about-section py-16 bg-gray-50' id='about'>
         <div className='max-w-6xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center'>
@@ -31,7 +68,7 @@ export default function About() {
                 />
             </div>
         </div>
-        
+        {/* Feature Section */}
         <div className='max-w-6xl mx-auto px-6 lg:px-12 mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center'>
           <div data-aos="fade-up" className='p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition'>
             <FaGlobeAmericas className='text-blue-600 text-4xl mb-4 mx-auto'/>
@@ -55,26 +92,30 @@ export default function About() {
           </div>
         </div>
 
-        <div className='bg-blue-900 text-white mt-20 py-12'>
+        {/* Animated Stat Section */}
+
+        <div id='stats' className='bg-blue-900 text-white mt-20 py-12'>
           <div className='max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center'>
             <div>
-              <h3 className='text-3xl font-extrabold'>50+</h3>
+              <h3 className='text-3xl font-extrabold'>{stats.destinations.toFixed(0)}+</h3>
               <p className='text-gray-300'>Destinations</p>
             </div>
             <div>
-              <h3 className='text-3xl font-extrabold'>200+</h3>
+              <h3 className='text-3xl font-extrabold'>{stats.hotels.toFixed(0)}+</h3>
               <p className='text-gray-300'>Hotels & Resorts</p>
             </div>
             <div>
-              <h3 className='text-3xl font-extrabold'>10K+</h3>
+              <h3 className='text-3xl font-extrabold'>{stats.travelers.toFixed(0)}K+</h3>
               <p className='text-gray-300'>Happy Travelers</p>
             </div>
             <div>
-              <h3 className='text-3xl font-extrabold'>5+</h3>
+              <h3 className='text-3xl font-extrabold'>{stats.experience.toFixed(0)}+</h3>
               <p className='text-gray-300'>Years Experience</p>
             </div>
           </div>
         </div>
+
+        {/* Team Section */}
 
         <div className="text-center mt-16 px-6">
           <h3 className="text-2xl font-bold text-blue-900 mb-8">Meet Our Team</h3>
