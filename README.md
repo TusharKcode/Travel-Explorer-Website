@@ -1,11 +1,12 @@
-# Travel Booking Website
+# 🌍 Travel Booking Website - Travellore
 
 A modern and responsive **Travel Explorer Web Application** built using **React**.
-This project allows users to explore destinations, view travel packages, chaeck real-time weather, read testimonials and make booking early.
+This project allows users to explore destinations, view travel packages, chaeck real-time weather,
+read FAQs, read testimonials and book trips easily -- all in one place.
 
 ---
 
-## Features
+## ✨ Features
 
 - **Hero Section** - Beautiful Landing section with call-to-action button
 - **Destinations** - Browse destinations with detailed pages
@@ -14,6 +15,7 @@ This project allows users to explore destinations, view travel packages, chaeck 
 - **Firebase Authentication** - Secure Login / Sign Up with firebase
 - **Filters & Search** - Search packages and filter by rating
 - **Weather Section** - Displays travel weather updates
+- **FAQ Section** - Interactive FAQ accordion with smooth transition
 - **Team Section** - Meet the travel team
 - **Newsletter** - Subscription form for regular updates
 - **Responsive & Dynamic** - Fully optimaized for all screens
@@ -22,7 +24,7 @@ This project allows users to explore destinations, view travel packages, chaeck 
 
 ---
 
-## Folder Structure
+## 🗂️ Folder Structure
 
 ```
 travel-booking-app/
@@ -47,6 +49,7 @@ travel-booking-app/
 │ │ ├── Contact2.jsx
 │ │ └── Footer.jsx
 │ │ └── ProtectedRoutes.jsx
+│ │ └── FAQSection.jsx
 │ │
 │ ├── pages/
 │ │ ├── Home.jsx
@@ -81,20 +84,23 @@ travel-booking-app/
 
 ---
 
-## Tech Stack
+## 🧠 Tech Stack
 
 - *Frontend* - React, React-Router, Tailwind CSS, Material-UI
-- *UI/UX* - AOS Animations, Respnsive Grid layout
+- *UI/UX* - AOS (Animate on scroll), Respnsive Grid layout, Custom Animations
+- *Authentication* - Firebase Authentication
 - *Storage* - Local Storage for bookings
 - *Icons* - Material Icons and React Icons
+- *Deployment* - Netlify
 
 ---
 
-## Future Enhancements
+## 🔮 Future Enhancements
 
 - Booking History Page
 - Real-Time Payment Integration
 - Google Map Integration for destinations
+- AI based Chat Assistant for user support
 
 ---
 
@@ -103,7 +109,46 @@ Check out the deployed project here: [Travellore](https://travellore.netlify.app
 
 ---
 
-## Author
+## ⚙️ Setup Instructions
+
+Follow these steps to run the project on your system:
+
+- 1. CLone the Repository
+
+```
+    git clone https://github.com/yourusername/travellore.git
+```
+
+- 2. Navigate to project folder
+
+```
+    cd Travel-explorerWebsite
+```
+
+- 3. Install Dependencies
+
+```
+    npm install
+```
+
+- 4. Start the development server
+
+```
+    npm run dev
+```
+This will start your project at `http://localhost:5173/` (deafult Vite port)
+
+- 5. Build for production - If you want to create a production-ready build:
+
+```
+    npm run build
+```
+
+- 6. Deploy
+Deploy easily on Netlify, Vercel or GitHub Pages
+---
+
+## 👨‍💻 Author
 
 **Tushar Kumar**
 
